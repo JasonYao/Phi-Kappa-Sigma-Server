@@ -1,0 +1,72 @@
+##############################
+# skullhouse.nyc's Webserver #
+##############################
+
+###############################################################
+# Server redirect from HTTP to HTTPS, and uses "www." for SEO #
+###############################################################
+server {
+	listen 80 default_server;
+	listen [::]:80 ipv6only=on;
+	listen 443 ssl spdy default_server;
+	
+	##### SPDY IMPROVEMENTS #####
+	spdy_headers_comp 1;
+
+	server_name skullhouse.nyc;
+
+	return 301 https://www.lanepartner.gg$request_uri;
+}
+
+##############################
+# Lane Partner Server SSL #
+##############################
+server {
+
+	listen 443 ssl spdy;
+
+	##### PAGESPEED IMPROVEMENTS #####
+#	pagespeed on;
+#	pagespeed FileCachePath /var/cache/ngx_pagespeed/;
+#	pagespeed FetchHttps enable;
+	
+	# Enabled Filters
+#	pagespeed RewriteLevel CoreFilters;
+#	pagespeed EnableFilters combine_css;
+#	pagespeed EnableFilters combine_javascript;
+#	pagespeed EnableFilters defer_javascript;
+#	pagespeed EnableFilters inline_google_font_css;
+
+	# Ensure requests for pagespeed optimized resources go to the pagespeed handler and no extraneous headers get set.
+#	location ~ "\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+" {
+#		add_header "" "";
+#	}
+
+#	location ~ "^/pagespeed_static/" { }
+#	location ~ "^/ngx_pagespeed_beacon$" { }
+	##### END OF PAGESPEED IMPROVEMENTS #####
+
+        ##### SPDY IMPROVEMENTS #####
+        spdy_headers_comp 1;
+
+	server_name www.skullhouse.nyc;
+	
+	root /usr/share/nginx/html/SkullhouseNYU/skullhouse/public;
+	index index.php;
+
+	location / {try_files $uri $uri/ /index.php?$query_string;}
+
+	##### Implements Caching #####
+        location ~* .(png|ico|css|js|jpg|gif)$ {expires 1y;}
+
+	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        location ~ \.php$ {
+                try_files $uri /index.php =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php5-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+##### END OF HTTPS Server #####
