@@ -15,12 +15,12 @@ server {
 
 	server_name skullhouse.nyc;
 
-	return 301 https://www.lanepartner.gg$request_uri;
+	return 301 https://www.skullhouse.nyc$request_uri;
 }
 
-##############################
-# Lane Partner Server SSL #
-##############################
+#########################
+# Skullhouse Server SSL #
+#########################
 server {
 
 	listen 443 ssl spdy;
