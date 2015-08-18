@@ -1,0 +1,62 @@
+/* Site-wide Styling */
+
+/* Navbar styling */
+	/* Centre title fonts and stuff */
+	@font-face {
+	    font-family: bannerFont;
+	    src: url('/assets/fonts/adinekir.ttf');
+	}
+
+	#navbar-title-banner {
+	    top: 0;
+	    position: absolute;
+	    width: 160px;
+	    right: 0;
+		left: 0;
+    	bottom: 0;
+    	margin: auto;   
+	}
+	
+	#nav {
+		height: 80px;
+		background: rgba(100,100,100,0.4);
+		font-size: 130%;
+		font-family: bannerFont;
+	}
+
+	#nav .container-fluid {
+		padding-top: 15px;
+		padding-right: 40px;
+		padding-left: 0px;
+	}
+
+	/* Adds dashed lines on top & below in the nav bar */
+	#nav .navbar-default, .navbar-nav {
+		border-top: 1px dashed white;
+		border-bottom: 1px dashed white;
+	}
+
+	/* Nav link colour styling */
+	#nav a:link, #nav a:visited {
+		color: rgb(255,255,255); /* unvisited & visited link colour */
+	}
+	
+	#nav a:hover {
+	    color: #8D734A; /* hover link colour */
+	}
+
+	button {
+		position: relative;
+		z-index: 2; /* Fixes mobile button clicking */
+	}
+
+/* Background colouring */
+@font-face {
+	font-family: bodyFont;
+	src: url('/assets/fonts/PlantagenetCherokee.ttf');
+}
+
+body {
+	background-color: black;
+	position: relative; /* Enables scroll spy on body */
+}
