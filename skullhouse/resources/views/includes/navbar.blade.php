@@ -23,16 +23,16 @@
             <div class="collapse navbar-collapse" id="navbar">
                <!-- Left-side of navbar -->
           		<ul class="nav navbar-nav navbar-left">
-          		  <li><a href="/vision/">Vision</a></li>
-          		  <li><a href="/about/">About Us</a></li>
-          		  <li><a href="/rush/">Rush</a></li>
+          		  <li class="{{ Request::is('vision') ? 'active' : '' }}"><a href="/vision/">Vision</a></li>
+          		  <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="/about/">About Us</a></li>
+          		  <li class="{{ Request::is('rush') ? 'active' : '' }}"><a href="/rush/">Rush</a></li>
           		</ul>
 
           		<!-- Right-side of navbar -->
           		<ul class="nav navbar-nav navbar-right">
-            		<li><a href="/membership/">Membership</a></li>
-            		<li><a href="/events/">Events</a></li>
-            		<li><a href="/contact/">Contact Us</a></li>
+            		<li class="{{ Request::is('membership') ? 'active' : '' }}"><a href="/membership/">Membership</a></li>
+            		<li class="{{ Request::is('events') ? 'active' : '' }}"><a href="/events/">Events</a></li>
+            		<li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="/contact/">Contact Us</a></li>
           		</ul>
             </div>
             <!-- /.navbar-collapse -->
