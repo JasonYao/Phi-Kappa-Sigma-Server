@@ -25,7 +25,7 @@
           		<ul class="nav navbar-nav navbar-left">
           		  <li><a href="/vision/">Vision</a></li>
           		  <li><a href="/about/">About Us</a></li>
-          		  <li><a href="/rush">Rush</a></li>
+          		  <li><a href="/rush/">Rush</a></li>
           		</ul>
 
           		<!-- Right-side of navbar -->
