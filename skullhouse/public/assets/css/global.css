@@ -22,6 +22,7 @@
 		background: rgba(100,100,100,0.4);
 		font-size: 130%;
 		font-family: bannerFont;
+		text-transform: uppercase;
 	}
 
 	#nav .container-fluid {
@@ -29,6 +30,8 @@
 		padding-right: 40px;
 		padding-left: 0px;
 	}
+
+	/* Adds the bulletpoints between navbar items TODO still needs fixing */
 
 	/* Adds dashed lines on top & below in the nav bar */
 	#nav .navbar-default, .navbar-nav {
