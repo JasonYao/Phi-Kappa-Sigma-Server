@@ -24,7 +24,20 @@
                <!-- Left-side of navbar -->
           		<ul class="nav navbar-nav navbar-left">
           		  <li class="{{ Request::is('vision') ? 'live' : '' }}"><a href="/vision/">Vision</a></li>
-          		  <li class="{{ Request::is('about') ? 'live' : '' }}"><a href="/about/">About Us</a></li>
+
+					<!-- About us information -->
+					<li class="dropdown">
+                    	<a href="/about/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							About us
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="{{ Request::is('about') ? 'live' : '' }}"><a href="/about/">Who We Are</a></li>
+							<li class="{{ Request::is('core-values') ? 'live' : '' }}"><a href="/core-values/">Core Values</a></li>
+							<li class="{{ Request::is('public-mottos') ? 'live' : '' }}"><a href="/public-mottos/">Public Mottos</a></li>
+						</ul>
+					</li>
+					<!-- End of about us information -->
+
           		  <li class="{{ Request::is('rush') ? 'live' : '' }}"><a href="/rush/">Rush</a></li>
           		</ul>
 
