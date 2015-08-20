@@ -43,7 +43,27 @@
 
           		<!-- Right-side of navbar -->
           		<ul class="nav navbar-nav navbar-right">
-            		<li class="{{ Request::is('membership') ? 'live' : '' }}"><a href="/membership/">Membership</a></li>
+
+					<!-- Membership information -->
+                    <li class="dropdown">
+                        <a href="/membership/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Membership
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+							<li class="dropdown-header dropHeader"><a href="/membership/">Information</a></li>
+	                            <li class="{{ Request::is('recruitment') ? 'live' : '' }}"><a href="/membership/recruitment/">Recruitment</a></li>
+	                            <li class="{{ Request::is('expectations') ? 'live' : '' }}"><a href="/membership/expectations/">Expectations</a></li>
+								<li class="{{ Request::is('expectations') ? 'live' : '' }}"><a href="/membership/faqs/">FAQs</a></li>
+
+							<li class="dropdown-header dropHeader"><a href="/services/">Services</a></li>
+								<li class="{{ Request::is('services/vpn') ? 'live' : '' }}"><a href="/services/vpn/">VPN Services</a></li>
+								<li class="{{ Request::is('services/studyrooms') ? 'live' : '' }}"><a href="/services/studyrooms/">Reserved Study Rooms</a></li>
+								<li class="{{ Request::is('services/forum') ? 'live' : '' }}"><a href="/services/forum/">Forum Services</a></li>
+								<li class="{{ Request::is('services/email') ? 'live' : '' }}"><a href="/services/email/">Email Services</a></li>
+								<li class="{{ Request::is('services/photography') ? 'live' : '' }}"><a href="/services/photography/">Photography Repositories</a></li>
+						</ul>
+                    </li>
+                    <!-- End of membership information -->
             		<li class="{{ Request::is('events') ? 'live' : '' }}"><a href="/events/">Events</a></li>
             		<li class="{{ Request::is('contact') ? 'live' : '' }}"><a href="/contact/">Contact Us</a></li>
           		</ul>
