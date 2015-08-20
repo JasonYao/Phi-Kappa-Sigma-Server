@@ -7,8 +7,9 @@
 ###############################################################
 server {
 	listen 80 default_server;
-	listen [::]:80 ipv6only=on;
+	listen [::]:80;
 	listen 443 ssl spdy default_server;
+	listen [::]:443 ssl spdy;
 	
 	##### SPDY IMPROVEMENTS #####
 	spdy_headers_comp 1;
@@ -24,6 +25,7 @@ server {
 server {
 
 	listen 443 ssl spdy;
+	listen [::]:443 ssl spdy;
 
 	##### SPDY IMPROVEMENTS #####
 	spdy_headers_comp 1;
