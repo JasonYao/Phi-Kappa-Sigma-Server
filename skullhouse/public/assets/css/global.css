@@ -1,5 +1,29 @@
 /* Site-wide Styling */
 
+/* Mask fade in loader */
+	#mask {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		background-color: #FFF;
+		z-index: 100;
+		height: 100%;
+	}
+
+	#loader {
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		background-image: url("/assets/img/mask/loading.gif");
+		background-repeat: no-repeat;
+		background-position: center center;
+		margin: -100px 0px 0px -100px;
+	}
+
 /* Navbar styling */
 	/* Centre title fonts and stuff */
 	@font-face {
@@ -21,8 +45,9 @@
 		height: 80px;
 		background: rgba(100,100,100,0.4);
 		font-size: 130%;
-		font-family: bannerFont;
+/*		font-family: bannerFont; */
 		text-transform: uppercase;
+		z-index: 4;
 	}
 
 	#nav .container-fluid {
@@ -48,18 +73,114 @@
 	    color: #8D734A; /* hover link colour */
 	}
 
+	#nav .live a:link, #nav .live a:visited {
+		color: #8D734A;
+	}
+
+	#nav .live a:hover {
+		color: #FFF;
+	}
+
 	button {
 		position: relative;
 		z-index: 2; /* Fixes mobile button clicking */
 	}
 
-/* Background colouring */
-@font-face {
-	font-family: bodyFont;
-	src: url('/assets/fonts/PlantagenetCherokee.ttf');
-}
+	/* Dropdown menu header styling */
+	#nav .dropHeader a:link, #nav .dropHeader a:visited {
+		color: #8D734A;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+		padding-left: 0px;
+	}
 
-body {
-	background-color: black;
-	position: relative; /* Enables scroll spy on body */
-}
+	.navbar-nav > li > .dropdown-menu a:hover {
+        background-color: rgba(100,100,100,0.4);
+		color: #000;
+        text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+        padding-left: 20px;
+    }
+
+	#nav .dropHeader a:hover {
+		color: #000;
+		text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+		padding-left: 0px;
+	}
+
+	/* Dropdown background changes */
+	.navbar-nav > li > .dropdown-menu {
+		background-color: rgba(100,100,100,0.4);
+	}
+
+/* Background colouring */
+	@font-face {
+		font-family: bodyFont;
+		src: url('/assets/fonts/PlantagenetCherokee.ttf');
+	}
+
+	body {
+		font-family: bodyFont;
+		background-color: black;
+		position: relative; /* Enables scroll spy on body */
+
+		/* Adds stroke to text */
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	}
+
+	.textContainer {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+	}
+
+	.text {
+		/* Positions shit */
+		z-index: 3;
+		position: absolute;
+		color: #FFF;
+
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: auto;
+		margin-bottom: auto;
+
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+
+		/* Sets the textbox size */
+		width: 440px;
+		height: 400px;
+
+		/* Colouring & scrollbar */
+		background-color: rgba(0,0,0,0.7);
+		text-align: center;
+		overflow-y:auto;
+	}
+
+	.text span {
+		color: #8D734A;
+	}
+
+/* ROT13 email obfuscator link styling */
+	#obf a:link, #obf a:visited {
+		color: #8D734A;
+	}
+
+/* Footer styling */
+	#footer {
+		color: #FFF;
+		background-color: rgba(0,0,0,0);
+
+		position: absolute;
+		text-align: center;
+
+		z-index: 4;
+		top: 96%;
+		bottom: 0px;
+		left: 20%;
+		right: 20%;
+
+		padding-bottom: 15px;
+	}
