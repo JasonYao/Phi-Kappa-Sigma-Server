@@ -13,18 +13,14 @@
 	@yield('css')
 
 </head>
-<body data-spy="scroll" data-target="#navbar">>
-
+<body data-spy="scroll" data-target="#navbar">
 	@include('includes.navbar')
 
 	@yield('breadcrumbs')
 
 	@include('includes.messages')
 
-	<div id="main">
-		<p>2nd testing</p>
-		@yield('content')
-	</div>
+	@yield('content')
 
 	@include('includes.footer')
 
