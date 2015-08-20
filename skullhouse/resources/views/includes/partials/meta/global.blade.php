@@ -10,3 +10,6 @@
 
 	<!-- CSRF tokens for extra security -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	<!-- Google verification tag -->
+	<meta name="google-site-verification" content="YS8AYEY08-QWtxG0B9oZPQ3MCihtJ7M3SSIpYvCFZes" />
