@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 	@include('includes.partials.meta.global')
+
+	@include('includes.safetypig')
+
 	@yield('meta')
 
 	<title>Phi Kappa Sigma Delta Phi | {{$title}}</title>
