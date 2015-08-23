@@ -19,7 +19,7 @@
 
   <p>
   Firstly, we draw your attention to the Constitution and Acts of Phi<br>
-  Kappa Sigma International Fraternity, <a href="/PKS_Constitution.pdf"><span>available here in PDF</span></a>.<br>
+  Kappa Sigma International Fraternity, <a href="/PKSConstitution2014.pdf"><span>available here in PDF</span></a>.<br>
   Please read the document in full and, in particular, the following sections:
   </p>
   <ul>
