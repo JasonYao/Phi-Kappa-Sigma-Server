@@ -13,8 +13,8 @@
 	<p>
 	This service is provided in the hopes of helping brothers gain access<br>
 	to the internet without fear of having that information sniffed or<br>
-	spied upon by third parties, whether simple malicious users, or<br>
-	sanctioned governmental agencies.
+	spied upon by third parties, whether from simple malicious users,<br>
+	or governmental agencies.
 	</p>
 
 	<p>
@@ -25,9 +25,11 @@
 
 	<p>
 	In the case of a governmental subpeona for information on this<br>
-	server or its members, this server's <a href="https://en.wikipedia.org/wiki/Warrant_canary"><span>Warrant Canary</span></a> shall die,<br>
-	and a grace period will be issued to all members if allowed, before<br>
-	this server is shut down and has its data shredded to maintain the anonymity of its users.
+	server or its members, this server's <a href="https://en.wikipedia.org/wiki/Warrant_canary"><span>Warrant Canary</span></a>,<br>
+	located <a href="/canary/"><span>here</span></a><br>
+	will die, and a grace period will be issued to all members if<br>
+	allowed, before this server is shut down and has its data shredded<br>
+	to maintain the anonymity of its users.
 	</p>
 
 	<p>This page will be updated on August 25th 2015 with more details on this service</p>
