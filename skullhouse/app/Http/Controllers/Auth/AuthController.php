@@ -44,12 +44,33 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+		// Sanitises and replaces user input
+		$this->sanitise();
+
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'firstName' => 'required|alpha|max:30',
+			'lastName' => 'required|alpha|max:30',
+            'email' => 'required|email|max:50|unique:users',
+            'password' => 'required|confirmed|min:8',
         ]);
-    }
+    } // End of the validator function
+
+	/**
+	 * Sanitises any user input and strips special characters
+	 */
+	protected function sanitise ()
+	{
+		$input = $this->all();
+
+		// Higher level of sanitisation that kills anything higher than ASCII 127
+		$input['firstName'] = filter_var($input['firstName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+		$input['lastName'] = filter_var($input['lastName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+		$input['email'] = filter_var($input['email'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+		$input['password'] = filter_var($input['password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+
+		// Replaces original with sanitised values
+		$this->replace($input);
+	} // End of the sanitise function
 
     /**
      * Create a new user instance after a valid registration.
@@ -60,9 +81,10 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+			'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-    }
-}
+    } // End of the create function
+} // End of the auth controller
