@@ -32,36 +32,24 @@
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/assets/img/bg/bg1.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Phi Kappa Sigma</h2>
-                </div>
             </div>
 
 			<!-- 2nd carousel slide -->
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/assets/img/bg/bg2.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>New York University</h2>
-                </div>
             </div>
 
 			<!-- 3rd carousel slide -->
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/assets/img/bg/bg3.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Delta Phi Chapter</h2>
-                </div>
             </div>
 
 			<!-- 4th carousel slide -->
 			<div class="item">
                 <!-- Set the fourth background image using inline CSS below. -->
                 <div class="fill" style="background-image:url('/assets/img/bg/hashtagSuits.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>A Brotherhood for life</h2>
-                </div>
             </div>
         </div>
 
