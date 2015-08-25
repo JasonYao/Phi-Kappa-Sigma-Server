@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Phi Kappa Sigma Delta Phi chapter is a social fraternity located at New York University.">
+    <meta name="description" content="Skullhouse is New York University’s premier society for men who seek intellectual stimulation, lifelong friendships, and a network of passionate individuals who share common values.">
     <meta name="author" content="Phi Kappa Sigma Delta Phi chapter">
 
 	<!-- CSRF tokens for extra security -->
