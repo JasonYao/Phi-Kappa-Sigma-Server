@@ -278,3 +278,13 @@
 
 	.social a {opacity: 0.5;}
 	.social a:hover {opacity: 1;}
+
+/* Messaging styling */
+.alert{
+	position: absolute;
+	left: 30%;
+	right: 30%;
+
+	text-align: center;
+	z-index: 11;
+}
