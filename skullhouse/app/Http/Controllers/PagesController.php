@@ -56,7 +56,7 @@ class PagesController extends Controller
         // Data variables passed to the view
         $title = 'Contact';
 
-        return view('public/contact', compact('title'));
+        return view('public/contact/contact', compact('title'));
     } // End of the contact function
 
 
@@ -78,6 +78,15 @@ class PagesController extends Controller
 
         return view('public/services/services', compact('title'));
     } // End of the services function
+
+	/* Returns views for brothers page */
+    function brothers()
+    {
+        // Data variables passed to the view
+        $title = 'Brothers';
+
+        return view('public/brothers/brothers', compact('title'));
+    } // End of the brothers function
 
 
 } // End of the Pages controller
