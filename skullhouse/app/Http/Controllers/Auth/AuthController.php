@@ -51,7 +51,7 @@ class AuthController extends Controller
             'firstName' => 'required|alpha|max:30',
 			'lastName' => 'required|alpha|max:30',
             'email' => 'required|email|max:50|unique:users',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required|confirmed|min:8|confirmed',
         ]);
     } // End of the validator function
 
