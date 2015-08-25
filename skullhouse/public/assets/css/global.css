@@ -172,7 +172,6 @@
 /* Footer styling */
 	#footer {
 		color: #FFF;
-		background-color: rgba(0,0,0,0);
 
 		position: absolute;
 		text-align: center;
@@ -185,3 +184,97 @@
 
 		padding-bottom: 15px;
 	}
+
+/* Contact page link stylink */
+	#contact a:link, #contact a:visited {
+		color: #FFF;
+	}
+
+	#contact a:hover {
+		color: #8D734A;
+	}
+
+/* Social Icons */
+	.social-icons {
+		margin: 0;
+		padding: 0; 
+	}
+
+	.social-icons li {
+		list-style: none;
+		margin-right: 3px;
+		display: inline-block;
+	}
+
+	.social-icons li a, a.social-icon {
+		width: 28px;
+		height: 28px;
+		display: block;
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-webkit-transition: all 0.3s ease-in-out;
+	}
+
+	.social-icons li:hover a {
+		background-position: 0 -38px;
+	}
+
+	.social-icons-color li a {
+		opacity: 0;
+		background-position: 0 -38px !important;
+		-webkit-backface-visibility: hidden; /*For Chrome*/
+	}
+
+	.social-icons-color li a:hover {
+		opacity: 1;
+	}
+
+	.social_facebook {
+		background: url(/assets/img/social/facebook.png) no-repeat;
+		border:1px solid #000;
+	}
+	
+	.social_github {
+		background: url(/assets/img/social/github.png) no-repeat;
+		border:1px solid #000;
+	}
+	.social_googleplus {
+		background: url(/assets/img/social/googleplus.png) no-repeat;
+		border:1px solid #000;
+	}
+	.social_linkedin {
+		background: url(/assets/img/social/linkedin.png) no-repeat;
+		border:1px solid #000;
+	}
+	.social_twitter {
+		background: url(/assets/img/social/twitter.png) no-repeat;
+		border:1px solid #000;
+	}
+	.social_vimeo {
+		background: url(/assets/img/social/vimeo.png) no-repeat;
+		border:1px solid #000;
+	}
+	.social_youtube {
+		background: url(/assets/img/social/youtube.png) no-repeat;
+		border:1px solid #000;
+	}
+
+	.social {
+		color: #FFF;
+
+        position: absolute;
+        z-index: 4;
+
+        top: 96%;
+        bottom: 0px;
+        left: 20%;
+        right: 20%;
+        padding-bottom: 15px;
+	}
+
+	.social a {opacity: 0.5;}
+	.social a:hover {opacity: 1;}
