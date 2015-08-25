@@ -7,16 +7,16 @@
 ###############################################################
 server {
 	listen 80 default_server;
-	listen [::]:80;
+	listen [::]:80 ipv6only=on;
 	listen 443 ssl spdy default_server;
-	listen [::]:443 ssl spdy;
+	listen [::]:443 ssl spdy ipv6only=on;
 	
 	##### SPDY IMPROVEMENTS #####
 	spdy_headers_comp 1;
 
 	server_name skullhouse.nyc;
 
-	return 301 https://www.skullhouse.nyc$request_uri;
+	return 301 https://www.skullhouse.nyc$request_uri/;
 }
 
 #########################
@@ -36,7 +36,10 @@ server {
 #	root /usr/share/nginx/html/Skullhouse/_site; ### SERVES OLD VERSION OF SITE ###
 	index index.php;
 
-	location / {try_files $uri $uri/ /index.php?$query_string;}
+	location / {
+		rewrite ^([^.]*[^/])$ $1/ permanent;
+		try_files $uri/ $uri /index.php?$query_string/;
+	}
 
 	##### Implements Caching #####
         location ~* .(png|ico|css|js|jpg|gif)$ {expires 1y;}
