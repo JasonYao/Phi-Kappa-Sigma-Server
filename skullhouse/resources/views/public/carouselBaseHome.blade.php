@@ -1,9 +1,5 @@
 @extends('layouts.homeMaster')
 
-@section('css')
-	@include('includes.partials.css.home')
-@overwrite
-
 @section('content')
 
 <!-- Page specific text -->
