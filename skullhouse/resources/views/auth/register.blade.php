@@ -18,15 +18,15 @@
 
 	<!-- Email for signup -->
 	<label for="inputEmail" class="sr-only">Email address</label>
-	<input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+	<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
 	<!-- Password for signup -->
 	<label for="inputPassword" class="sr-only">Password</label>
-	<input type="text" id="inputPassword" class="form-control" placeholder="Password" required>
+	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
 	<!-- Password confirmation for signup -->
 	<label for="inputPasswordConfirmation" class="sr-only">Password confirmation</label>
-    <input type="text" id="inputPasswordConfirmation" class="form-control" placeholder="Password confirmation" required>
+    <input type="password" id="inputPasswordConfirmation" class="form-control" placeholder="Password confirmation" required>
 
 	<!-- Remember value -->
 	<div class="checkbox">
