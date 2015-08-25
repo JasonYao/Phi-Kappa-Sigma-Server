@@ -7,7 +7,7 @@
 
 	@yield('meta')
 
-	<title>Phi Kappa Sigma Delta Phi | {{$title}}</title>
+	<title>NYU Skullhouse | Phi Kappa Sigma Fraternity | Delta Phi Chapter | New York University</title>
 
 	@include('includes.partials.favicon.global')
 
@@ -26,6 +26,8 @@
 	@yield('content')
 
 	@include('includes.footer')
+
+	@include('includes.social')
 
 	@include('includes.partials.google.analytics')
 
