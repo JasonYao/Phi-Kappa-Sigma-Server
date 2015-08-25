@@ -39,7 +39,7 @@ class Authenticate
                 return response('Unauthorized.', 401);
             } else {
 				\Session::flash('flashMessage', 'Please login for access to member pages');
-                return redirect()->guest('login')->with($flashMessage = 'Test');
+                return redirect()->guest('login');
             }
         }
 
