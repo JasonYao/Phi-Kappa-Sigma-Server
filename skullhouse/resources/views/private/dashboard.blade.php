@@ -6,6 +6,6 @@
 
 @section('text')
 
-	<h1><span>MEMBER DASHBOARD</span></h1>
+	<h1><span>{{ Auth::user()->firstName . "'s" }} Dashboard</span></h1>
 	<hr>
 @endsection
