@@ -77,22 +77,22 @@
 
 		<li>
 		<p>
-		I will strive to keep my Chapter strong by actively participating<br>
-		in recruitment.
+		I will strive to keep my Chapter strong by actively<br>
+		participating in recruitment.
 		</p>
 		</li>
 
 		<li>
 		<p>
-		I will recognize that my responsibility to Phi Kappa Sigma does<br>
-		not end upon graduation and I will always support the Fraternity<br>
-		to the best of my ability.
+		I will recognize that my responsibility to Phi Kappa Sigma<br>
+		does not end upon graduation and I will always support the<br>
+		Fraternity to the best of my ability.
 		</p>
 		</li>
 
 		<li>
 		<p>
-		I will encourage and challenge other Skulls to abide by these<br>
+		I will encourage and challenge other Skull's to abide by these<br>
 		expectations and confront those who fail to do so.
 		</p>
 		</li>
