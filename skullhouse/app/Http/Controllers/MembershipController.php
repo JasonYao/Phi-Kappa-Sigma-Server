@@ -9,17 +9,6 @@ use App\Http\Controllers\Controller;
 
 class MembershipController extends Controller
 {
-	/**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    } // End of the constructor
-
-
     /* Returns views for membership page */
     function membership()
     {
