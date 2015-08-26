@@ -25,12 +25,7 @@ class ValidatedPagesController extends Controller
 		// Data variables passed to the view
 		$title = 'Dashboard';
 
-		return view('auth/dashboard', compact('title'));
+		return view('private/dashboard', compact('title'));
 	} // End of the dashboard view
-
-
-
-
-
 
 } // End of the validated pages controller
