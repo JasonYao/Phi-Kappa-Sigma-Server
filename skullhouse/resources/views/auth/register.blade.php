@@ -24,4 +24,12 @@
 
 		{!! Form::submit('Register', array('class' => 'btn btn-lg btn-primary btn-block')) !!}
 	</form>
+
+	<!-- Login for those whom already have accounts -->
+	<hr>
+	<p>
+		If you already have an account approved, login <a href="/login/"><span>here</span></a>!
+	</p>
+	<hr>
+
 @endsection
