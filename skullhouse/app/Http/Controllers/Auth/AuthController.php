@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -44,9 +46,6 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-		// Sanitises and replaces user input
-		$this->sanitise();
-
         return Validator::make($data, [
             'firstName' => 'required|alpha|max:30',
 			'lastName' => 'required|alpha|max:30',
@@ -58,18 +57,18 @@ class AuthController extends Controller
 	/**
 	 * Sanitises any user input and strips special characters
 	 */
-	protected function sanitise ()
+	protected function sanitise (array $input)
 	{
-		$input = $this->all();
+		// Sanitises the output, filters HTML tags and ACII characters higher than 127
+		$output = [
+			'firstName' => filter_var($input['firstName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'lastName' => filter_var($input['lastName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'email' => filter_var($input['email'], FILTER_SANITIZE_EMAIL),
+			'password' => filter_var($input['password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'password_confirmation' => filter_var($input['password_confirmation'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH)
+		];
 
-		// Higher level of sanitisation that kills anything higher than ASCII 127
-		$input['firstName'] = filter_var($input['firstName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-		$input['lastName'] = filter_var($input['lastName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-		$input['email'] = filter_var($input['email'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-		$input['password'] = filter_var($input['password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-
-		// Replaces original with sanitised values
-		$this->replace($input);
+		return $output;
 	} // End of the sanitise function
 
     /**
@@ -87,4 +86,40 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     } // End of the create function
+
+	/* Registration post logic */
+	protected function postRegister(Request $request)
+	{
+		// Arrayises the request (yeah, it's now a verb, suck my dick english profs)
+		$data = [
+			'firstName' => $request->input('firstName'),
+			'lastName' => $request->input('lastName'),
+			'email' => $request->input('email'),
+			'password' => $request->input('password'),
+			'password_confirmation' => $request->input('password_confirmation')
+		];
+
+		// Sanitises the data
+		$sanitisedData = $this->sanitise($data);
+
+		// Validates all user inputs
+		$validator = $this->validator($sanitisedData);
+
+		if ($validator->fails())
+		{
+			// User input is invalid, flashes errors and goes back to page
+            $messages = $validator->messages();
+			\Session::flash('flashMessage', $messages);
+			return back()->withInput();
+		}
+
+		// Creates a user object
+		$newUser = $this->create($sanitisedData);
+
+		// Stores the user object
+		$newUser->save();
+
+		return redirect('login')->with('flashMessage', 'Registration complete!');
+	} // End of the registration post function
+
 } // End of the auth controller

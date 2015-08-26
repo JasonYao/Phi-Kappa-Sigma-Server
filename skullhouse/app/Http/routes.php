@@ -51,16 +51,14 @@
 
 /* Private Access (account required) */
 	// Login & Registration
-	//Route::controller('/', 'Auth\AuthController');
+		// Authentication routes
+			Route::get('login', 'Auth\AuthController@getLogin');
+			Route::post('login', 'Auth\AuthController@postLogin');
+			Route::get('logout', 'Auth\AuthController@getLogout');
 
-	// Authentication routes
-		Route::get('login', 'Auth\AuthController@getLogin');
-		Route::post('login', 'Auth\AuthController@postLogin');
-		Route::get('logout', 'Auth\AuthController@getLogout');
-
-	// Registration routes
-		Route::get('register', 'Auth\AuthController@getRegister');
-		Route::post('register', 'Auth\AuthController@postRegister');
+		// Registration routes
+			Route::get('register', 'Auth\AuthController@getRegister');
+			Route::post('register', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postRegister'));
 
 	// Authenticed routes
 		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
