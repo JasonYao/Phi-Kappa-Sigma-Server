@@ -1,4 +1,11 @@
-<h3><span>Founders Class</span></h3> 
+<h1><span>BROTHERS</span></h1>
+<hr>
+
+	<p>
+		To view a Skull's biography, click his name. To update your biography, click <a href="/login/"><span>here</span></a>.
+	</p>
+<hr>
+<h3><span>Founders Class</span></h3>
 Benjamin Millard<br>
 Cameron Little<br>
 Christopher Beck<br>
