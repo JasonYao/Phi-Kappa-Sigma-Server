@@ -42,6 +42,16 @@
 	*/
 	// Brothers Page
 	Route::get('brothers', 'PagesController@brothers');
+		Route::get('brothers/{user?}', function($user = null)
+		{
+        if ($user)
+            $users = User::where('user', '=', $user);
+        else
+            $users = Post::all();
+
+        return View::make('')
+            ->with('posts', $posts);
+    });
 
 	// Contact Page
 	Route::get('contact', 'PagesController@contact');
@@ -62,3 +72,10 @@
 
 	// Authenticed routes
 		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
+/* Error handling */
+	App::missing(function($exception)
+	{
+		// shows an error page (app/views/error.blade.php)
+		// returns a page not found error
+		return Response::view('error', array(), 404);
+	});
