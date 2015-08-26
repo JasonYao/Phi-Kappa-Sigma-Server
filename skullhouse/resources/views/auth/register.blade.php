@@ -9,33 +9,19 @@
 	<h1><span>MEMBER REGISTRATION</span></h1>
 	<hr>
 
-	<form method="POST" action="register" class="form-signin">
-    	{!! csrf_field() !!}
+	<!-- Registration form -->
+	<form method="POST" action="https://www.skullhouse.nyc/register/" accept-charset="UTF-8" class="form-signin">
 
-	<!-- Name for signup -->
-	<label for="inputName" class="sr-only">Full name</label>
-	<input type="text" id="inputName" class="form-control" placeholder="Full name" required autofocus>
+		{!! Form::token() !!}
 
-	<!-- Email for signup -->
-	<label for="inputEmail" class="sr-only">Email address</label>
-	<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		{!! Form::text('firstName', null, array('class' => 'form-control', 'placeholder' => 'First Name')) !!}
+		{!! Form::text('lastName', null, array('class' => 'form-control', 'placeholder' => 'Last Name')) !!}
 
-	<!-- Password for signup -->
-	<label for="inputPassword" class="sr-only">Password</label>
-	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		{!! Form::email('email', null, array('class' => 'form-control', 'placeholder' => 'Email address')) !!}
 
-	<!-- Password confirmation for signup -->
-	<label for="inputPasswordConfirmation" class="sr-only">Password confirmation</label>
-    <input type="password" id="inputPasswordConfirmation" class="form-control" placeholder="Password confirmation" required>
+		{!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) !!}
+		{!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Password confirmation')) !!}
 
-	<!-- Remember value -->
-	<div class="checkbox">
-		<label>
-			<input type="checkbox" value="remember-me"> Remember me
-		</label>
-	</div>
-
-	<!-- Form submission -->
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+		{!! Form::submit('Register', array('class' => 'btn btn-lg btn-primary btn-block')) !!}
 	</form>
 @endsection
