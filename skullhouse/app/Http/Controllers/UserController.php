@@ -19,6 +19,14 @@ class UserController extends Controller
 		$this->middleware('auth');
 	} // End of the authenticated constructor
 
+	protected function getProfile()
+    {
+        // Data variables passed to the view
+        $title = 'Profile';
+
+        return view('private/profile', compact('title'));
+    } // End of the get profile function
+
     /**
      * Update the specified resource in storage.
      *
@@ -26,12 +34,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function updateProfile(Request $request, $id)
+    protected function updateProfile(Request $request, $id)
     {
 
     } // End of the update profile function
 
-	protected function getProfile()
+	protected function getProfileUpdate()
 	{
 		// Data variables passed to the view
 		$title = 'Profile Update';
