@@ -50,14 +50,14 @@ class AuthController extends Controller
             'firstName' => 'required|alpha|max:30',
 			'lastName' => 'required|alpha|max:30',
             'email' => 'required|email|max:50|unique:users',
-            'password' => 'required|confirmed|min:8|confirmed',
+            'password' => 'required|confirmed|min:8',
         ]);
     } // End of the validator function
 
 	/**
 	 * Sanitises any user input and strips special characters
 	 */
-	protected function sanitise (array $input)
+	protected function sanitise(array $input)
 	{
 		// Sanitises the output, filters HTML tags and ACII characters higher than 127
 		$output = [
