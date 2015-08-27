@@ -10,7 +10,11 @@
 	<hr>
 
 	<p>
-		Update your profile information <a href="/dashboard/update/profile/"><span>here</span></a>
+		View your profile <a href="/profile/"><span>here</span></a>.
+	</p>
+
+	<p>
+		Update your profile information <a href="/profile/update/"><span>here</span></a>
 	</p>
 
 	<p>
