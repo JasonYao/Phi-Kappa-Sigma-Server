@@ -53,6 +53,14 @@
 								<li class="{{ Request::is('recruitment') ? 'live' : '' }}"><a href="/membership/recruitment/">Recruitment</a></li>
 	                            <li class="{{ Request::is('expectations') ? 'live' : '' }}"><a href="/membership/expectations/">Expectations</a></li>
 								<li class="{{ Request::is('expectations') ? 'live' : '' }}"><a href="/membership/faqs/">FAQs</a></li>
+
+								<hr>
+								@if (Auth::check())
+									<li class="{{ Request::is('dashboard') ? 'live' : '' }}"><a href="/dashboard/">{{Auth::user()->firstName . "'s Dashboard"}}</a></li>
+								@else
+									<li class="{{ Request::is('login') ? 'live' : '' }}"><a href="/login/">Login</a></li>
+									<li class="{{ Request::is('register') ? 'live' : '' }}"><a href="/register/">Registration</a></li>
+								@endif
 						</ul>
                     </li>
                     <!-- End of membership information -->
