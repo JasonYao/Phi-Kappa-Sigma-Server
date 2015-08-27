@@ -25,13 +25,13 @@ class CreateUsersTable extends Migration
 
 			// Fraternity-specific information
 			$table->text('description')->nullable();
-			$table->string('picture')->nullable();
 			$table->string('initiationClass')->nullable();
 			$table->string('degree')->nullable();
 			$table->string('school')->nullable();
 			$table->string('honours')->nullable();
 
 			// Technical information
+			$table->string('picture')->nullable();
 			$table->string('confirmationCode')->nullable(); // If code is null, account is confirmed
 			$table->string('obfuscationCode'); // Don't null this shit, since image folders depend on this
             $table->rememberToken();
