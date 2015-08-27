@@ -80,11 +80,17 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-			'firstName' => $data['firstName'],
+            'firstName' => $data['firstName'],
+            'middleInitial' => NULL,
             'lastName' => $data['lastName'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+            'description' => NULL,
+            'initiationClass' => NULL,
+            'degree' => NULL,
+            'school' => NULL,
+            'honours' => NULL
+		]);
     } // End of the create function
 
 	/* Registration post logic */
@@ -116,10 +122,17 @@ class AuthController extends Controller
 		// Creates a user object
 		$newUser = $this->create($sanitisedData);
 
+		// For some reason I need to initialize this here
+		$obf = md5(microtime()) . str_random(20);
+		$newUser->obfuscationCode = $obf;
+		$newUser->confirmationCode = str_random(20);
+		$newUser->picture = '/assets/img/' . $obf . '/profile.png';
+
 		// Stores the user object
 		$newUser->save();
 
-		return redirect('login')->with('flashMessage', 'Registration complete!');
+		\Session::flash('flashMessage', 'Registration complete!');
+		return redirect('login');
 	} // End of the registration post function
 
 } // End of the auth controller
