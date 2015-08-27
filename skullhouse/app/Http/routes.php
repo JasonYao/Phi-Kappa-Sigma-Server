@@ -42,16 +42,6 @@
 	*/
 	// Brothers Page
 	Route::get('brothers', 'PagesController@brothers');
-		Route::get('brothers/{user?}', function($user = null)
-		{
-        if ($user)
-            $users = User::where('user', '=', $user);
-        else
-            $users = Post::all();
-
-        return View::make('')
-            ->with('posts', $posts);
-    });
 
 	// Contact Page
 	Route::get('contact', 'PagesController@contact');
@@ -63,19 +53,25 @@
 	// Login & Registration
 		// Authentication routes
 			Route::get('login', 'Auth\AuthController@getLogin');
-			Route::post('login', 'Auth\AuthController@postLogin');
+			Route::post('login', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postLogin'));
 			Route::get('logout', 'Auth\AuthController@getLogout');
 
 		// Registration routes
 			Route::get('register', 'Auth\AuthController@getRegister');
 			Route::post('register', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postRegister'));
 
+		// Password reset link request routes
+			Route::get('password/email', 'Auth\PasswordController@getEmail');
+			Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+		// Password reset routes
+			Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+			Route::post('password/reset', 'Auth\PasswordController@postReset');
+
 	// Authenticed routes
 		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
+
+		Route::get('dashboard/update/profile', 'UserController@getProfile');
+		Route::post('dashboard/update/profile', array('before' => 'csrf', 'uses' => 'UserController@updateProfile'));
+
 /* Error handling */
-	App::missing(function($exception)
-	{
-		// shows an error page (app/views/error.blade.php)
-		// returns a page not found error
-		return Response::view('error', array(), 404);
-	});
