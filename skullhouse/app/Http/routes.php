@@ -71,7 +71,7 @@
 	// Authenticed routes
 		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
 
-		Route::get('dashboard/update/profile', 'UserController@getProfile');
-		Route::post('dashboard/update/profile', array('before' => 'csrf', 'uses' => 'UserController@updateProfile'));
+		Route::get('profile/update', 'UserController@getProfile');
+		Route::post('profile/update/', array('before' => 'csrf', 'uses' => 'UserController@updateProfile'));
 
 /* Error handling */
