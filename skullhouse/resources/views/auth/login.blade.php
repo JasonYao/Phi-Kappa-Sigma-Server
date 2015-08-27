@@ -1,7 +1,7 @@
 @extends('public.carouselBase')
 
 @section('css')
-	@include('includes.partials.css.login')
+	@include('includes.partials.css.forms')
 @overwrite
 
 @section('text')
@@ -25,6 +25,10 @@
 	<hr>
 	<p>
 		If you don't have an account, sign up for one <a href="/register/"><span>here</span></a>. After you register, an admin will approve/deny your account if you are from Delta Phi.
+	</p>
+
+	<p>
+		Forgot your password? Reset it <a href="/password/email/"><span>here</span></a>!
 	</p>
 	<hr>
 @endsection

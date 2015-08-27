@@ -1,7 +1,7 @@
 @extends('public.carouselBase')
 
 @section('css')
-	@include('includes.partials.css.register')
+	@include('includes.partials.css.forms')
 @overwrite
 
 @section('text')
