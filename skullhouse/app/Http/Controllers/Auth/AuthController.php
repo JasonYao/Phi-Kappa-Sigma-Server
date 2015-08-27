@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use File;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -126,7 +127,17 @@ class AuthController extends Controller
 		$obf = md5(microtime()) . str_random(20);
 		$newUser->obfuscationCode = $obf;
 		$newUser->confirmationCode = str_random(20);
-		$newUser->picture = '/assets/img/' . $obf . '/profile.png';
+		$newUser->picture = '/assets/img/profiles/' . $obf . '/profile.png';
+
+		// Creates a user directory
+		$path = public_path(). '/assets/img/profiles/' . $obf;
+
+		// Creates a profile directory
+		if (!File::exists($path))
+		{File::makeDirectory($path, 0755, true);}
+
+		// Copies over a default image
+		File::copy(public_path(). '/assets/img/social/fbLink.png', $path . '/profile.png');
 
 		// Stores the user object
 		$newUser->save();
