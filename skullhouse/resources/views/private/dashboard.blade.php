@@ -25,4 +25,8 @@
 	<p>
 		Reset your account password <a href="/password/email/"><span>here</span></a>
 	</p>
+
+	<p>
+		To log out, click <a href="/logout/"><span>here</span></a>.
+	</p>
 @endsection
