@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
-
+use Validator;
+use File;
+use Storage;
+use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -34,9 +37,77 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    protected function updateProfile(Request $request, $id)
+    protected function updateProfile(Request $request)
     {
+		// Arrayises the request (yeah, it's now a verb, suck my dick english profs)
+        $data = [
+			'firstName' => $request->input('firstName'),
+			'middleInitial' => $request->input('middleInitial'),
+			'lastName' => $request->input('lastName'),
+			'email' => $request->input('email'),
+			'description' => $request->input('description'),
+			'initiationClass' => $request->input('initiationClass'),
+			'degree' => $request->input('degree'),
+			'school' => $request->input('school'),
+			'honours' => $request->input('honours'),
+			'picture' => $request->input('picture')
+        ];
 
+        // Sanitises the data
+        $sanitisedData = $this->sanitise($data);
+
+		// Sets email to different one, before saving new state
+		if ($data['email'] === Auth::user()->email)
+		{
+			$temp = Auth::user();
+			$temp->email = $data['email'] . '123';
+			$temp->save();
+		}
+
+        // Validates all user inputs
+        $validator = $this->validator($sanitisedData);
+
+        if ($validator->fails())
+        {
+            // User input is invalid, flashes errors and goes back to page
+            $messages = $validator->messages();
+            \Session::flash('flashMessage', $messages);
+            return back()->withInput();
+        }
+
+		// Retrieves data from db
+		$currentUser = Auth::user();
+
+		// Patches the new values in
+		$currentUser->firstName = $sanitisedData['firstName'];
+		$currentUser->middleInitial = $sanitisedData['middleInitial'];
+		$currentUser->lastName = $sanitisedData['lastName'];
+		$currentUser->email = $sanitisedData['email'];
+		$currentUser->description = $sanitisedData['description'];
+		$currentUser->initiationClass = $sanitisedData['initiationClass'];
+		$currentUser->degree = $sanitisedData['degree'];
+		$currentUser->school = $sanitisedData['school'];
+		$currentUser->honours = $sanitisedData['honours'];
+
+		// Checks if image was uploaded
+		if($sanitisedData['picture'] !== NULL)
+		{
+			// Replaces the old profile.png
+			$path = '/assets/img/profiles/' . $currentUser->obfuscationCode . '/profile.';
+			if (File::exists($path . $currentUser->extension))
+	        {File::delete($path . $currentUser->extension);}
+			$file = $request->file('picture');
+			$extension = $file->getExtension();
+
+			$currentUser->extension = $extension;
+			$currentUser->picture = $path . $extension;
+			Storage::disk('local')->put($path .$extension,  File::get($file));
+		}
+		// Stores the new profile
+		$currentUser->save();
+
+		\Session::flash('flashMessage', 'Profile successfully updated!');
+        return redirect('dashboard');
     } // End of the update profile function
 
 	protected function getProfileUpdate()
@@ -55,22 +126,56 @@ class UserController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'oldPassword' => 'required|min:8',
-            'password' => 'required|min:8|confirmed',
-        ]);
+		if($data['picture'] !== NULL)
+		{
+	        return Validator::make($data, [
+				'firstName' => 'required|alpha_dash|max:30',
+				'middleInitial' => 'alpha|max:1',
+				'lastName' => 'required|alpha_dash|max:30',
+				'email' => 'required|email|max:50|unique:users',
+				'description' => 'max:65534',
+				'initiationClass' => 'max:25',
+				'degree' => 'max:255',
+				'school' => 'max:255',
+				'honours' => 'max:255',
+				'picture' => 'image'
+			]);
+		}
+		else
+		{
+			// No picture uploaded
+			return Validator::make($data, [
+                'firstName' => 'required|alpha_dash|max:30',
+                'middleInitial' => 'alpha|max:1',
+                'lastName' => 'required|alpha_dash|max:30',
+                'email' => 'required|email|max:50|unique:users',
+                'description' => 'max:65534',
+                'initiationClass' => 'max:25',
+                'degree' => 'max:255',
+                'school' => 'max:255',
+                'honours' => 'max:255'
+            ]);
+
+		}
     } // End of the validator function
 
 	 /**
      * Sanitises any user input and strips special characters
      */
-    protected function sanitisePassword(array $input)
+    protected function sanitise(array $input)
     {
         // Sanitises the output, filters HTML tags and ACII characters higher than 127
         $output = [
-            'oldPassword' => filter_var($input['oldPassword'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
-            'password' => filter_var($input['password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
-            'password_confirmation' => filter_var($input['password_confirmation'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH)
+			'firstName' => filter_var($input['firstName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'middleInitial' => filter_var($input['middleInitial'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'lastName' => filter_var($input['lastName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'email' => filter_var($input['email'], FILTER_SANITIZE_EMAIL),
+			'description' => filter_var($input['description'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'initiationClass' => filter_var($input['initiationClass'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'degree' => filter_var($input['degree'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'school' => filter_var($input['school'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'honours' => filter_var($input['honours'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
+			'picture' => $input['picture']
         ];
 
         return $output;
