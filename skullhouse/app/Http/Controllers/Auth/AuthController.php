@@ -48,8 +48,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstName' => 'required|alpha|max:30',
-			'lastName' => 'required|alpha|max:30',
+            'firstName' => 'required|alpha_dash|max:30',
+			'lastName' => 'required|alpha_dash|max:30',
             'email' => 'required|email|max:50|unique:users',
             'password' => 'required|confirmed|min:8',
         ]);
@@ -90,7 +90,8 @@ class AuthController extends Controller
             'initiationClass' => NULL,
             'degree' => NULL,
             'school' => NULL,
-            'honours' => NULL
+            'honours' => NULL,
+			'extension' => 'png'
 		]);
     } // End of the create function
 
