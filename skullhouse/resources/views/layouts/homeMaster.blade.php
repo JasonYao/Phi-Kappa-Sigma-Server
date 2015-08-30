@@ -35,6 +35,8 @@
 
 	@include('includes.partials.google.analytics')
 
+    @include('includes.partials.js.carousel')
+
 	@yield('js')
 </body>
 </html>

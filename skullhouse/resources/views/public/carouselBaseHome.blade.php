@@ -59,7 +59,3 @@
 
     </header>
 @endsection
-
-@section('js')
-	@include('includes.partials.js.carousel')
-@overwrite
