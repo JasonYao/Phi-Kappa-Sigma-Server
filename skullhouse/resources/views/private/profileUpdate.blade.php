@@ -10,7 +10,7 @@
 	<hr>
 
 	<!-- Profile update form -->
-	<form method="POST" action="https://www.skullhouse.nyc/dashboard/profile/update/" accept-charset="UTF-8" class="form-signin" enctype="multipart/form-data">
+	<form method="POST" action="https://www.skullhouse.nyc/profile/update/" accept-charset="UTF-8" class="form-signin" enctype="multipart/form-data">
 
 		{!! Form::token() !!}
 
@@ -24,12 +24,14 @@
 		<p>
 			Your current profile picture:
 		</p>
-		<a href="/assets/img/profiles/{!!Auth::user()->obfuscationCode!!}/profile.png">
-			<img src="/assets/img/profiles/{!!Auth::user()->obfuscationCode!!}/profile.png" alt="{!!Auth::user()->firstName . " " . Auth::user()->lastName!!}" width="200" height="200" border="1">
+		<a href="{{'/assets/img/profiles/' . Auth::user()->obfuscationCode . '/profile.' . Auth::user()->extension}}">
+			<img id="displayPicture" src="{{'/assets/img/profiles/' . Auth::user()->obfuscationCode . '/profile.' . Auth::user()->extension}}" 
+			alt="{!! Auth::user()->firstName . " " . Auth::user()->lastName !!}" width="200" 
+					height="200" border="1">
 		</a>
 
 		<p>New profile picture upload:</p>
-		{!! Form::file('image', null) !!}
+		{!! Form::file('picture', ['onchange' => 'displayUploaded(this);']) !!}
 
 		<!-- Fraternity information -->
 		{!! Form::textarea('description', Auth::user()->description, array('class' => 'form-control', 'placeholder' => 'Biography')) !!}
@@ -49,7 +51,7 @@
 			'iota' => 'Iota Class',
 			'kappa' => 'Kappa Class',
 			'lambda' => 'Lambda Class',
-		), 'lambda', array('class' => 'drop')) !!}
+		), Auth::user()->initiationClass, array('class' => 'drop')) !!}
 
 		{!! Form::text('degree', Auth::user()->degree, array('class' => 'form-control', 'placeholder' => 'Degree (e.g. B.S. Computer Science 2018)')) !!}
 
@@ -65,4 +67,21 @@
 		Go back to dashboard <a href="/dashboard/"><span>here</span></a>
 	</p>
 
+@endsection
+
+@section('js')
+<script>
+function displayUploaded(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			$('#displayPicture')
+				.attr('src', e.target.result)
+				.width(200)
+				.height(200);
+		};
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+</script>
 @endsection
