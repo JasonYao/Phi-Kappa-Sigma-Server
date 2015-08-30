@@ -139,7 +139,7 @@ class AuthController extends Controller
 		{File::makeDirectory($path, 0755, true);}
 
 		// Copies over a default image
-		File::copy(public_path(). '/assets/img/social/fbLink.png', $path . '/profile.png');
+		File::copy(public_path(). '/assets/img/profiles/profile.png', $path . '/profile.png');
 
 		// Stores the user object
 		$newUser->save();
