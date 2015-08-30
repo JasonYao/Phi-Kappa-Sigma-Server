@@ -101,7 +101,7 @@ class UserController extends Controller
 			$extension = Input::file('picture')->getClientOriginalExtension();
 
 			$currentUser->extension = $extension;
-			$currentUser->picture = $path . '/profile.' . $extension;
+			$currentUser->picture = '/assets/img/profiles/' . $currentUser->obfuscationCode . '/profile.' . $extension;
 			$filePath = public_path() . '/assets/img/profiles/' . $currentUser->obfuscationCode;
 			$success = Input::file('picture')->move($filePath, 'profile.' . $currentUser->extension);
 		}
