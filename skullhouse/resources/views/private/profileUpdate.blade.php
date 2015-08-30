@@ -39,18 +39,18 @@
 		{!! Form::label('initiationClass', 'Initiation Class') !!}
 		{!! Form::select('initiationClass', array(
 			NULL => '',
-			'founders' => 'Founders Class',
-			'alpha' => 'Alpha Class',
-			'beta' => 'Beta Class',
-			'gamma' => 'Gamma Class',
-			'delta' => 'Delta Class',
-			'epsilon' => 'Epsilon Class',
-			'zeta' => 'Zeta Class',
-			'eta' => 'Eta Class',
-			'theta' => 'Theta Class',
-			'iota' => 'Iota Class',
-			'kappa' => 'Kappa Class',
-			'lambda' => 'Lambda Class',
+			'Founders Class' => 'Founders Class',
+			'Alpha Class' => 'Alpha Class',
+			'Beta Class' => 'Beta Class',
+			'Gamma Class' => 'Gamma Class',
+			'Delta Class' => 'Delta Class',
+			'Epsilon Class' => 'Epsilon Class',
+			'Zeta Class' => 'Zeta Class',
+			'Eta Class' => 'Eta Class',
+			'Theta Class' => 'Theta Class',
+			'Iota Class' => 'Iota Class',
+			'Kappa Class' => 'Kappa Class',
+			'Lambda Class' => 'Lambda Class',
 		), Auth::user()->initiationClass, array('class' => 'drop')) !!}
 
 		{!! Form::text('degree', Auth::user()->degree, array('class' => 'form-control', 'placeholder' => 'Degree (e.g. B.S. Computer Science 2018)')) !!}
@@ -58,6 +58,8 @@
 		{!! Form::text('school', Auth::user()->school, array('class' => 'form-control', 'placeholder' => 'School (e.g. Courant Institute of Mathematical Sciences)')) !!}
 
 		{!! Form::text('honours', Auth::user()->honours, array('class' => 'form-control', 'placeholder' => 'Honours & awards')) !!}
+
+		{!! Form::text('affiliations', Auth::user()->affiliations, array('class' => 'form-control', 'placeholder' => 'Affiliations (e.g. fencing team, college libertarians)')) !!}
 
 		{!! Form::submit('Update profile', array('class' => 'btn btn-lg btn-primary btn-block')) !!}
 	</form>

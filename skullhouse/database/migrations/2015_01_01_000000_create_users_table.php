@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
 			$table->string('degree')->nullable();
 			$table->string('school')->nullable();
 			$table->string('honours')->nullable();
+			$table->string('affiliations')->nullable();
 
 			// Technical information
 			$table->string('picture')->nullable();

@@ -50,7 +50,8 @@ class UserController extends Controller
 			'degree' => $request->input('degree'),
 			'school' => $request->input('school'),
 			'honours' => $request->input('honours'),
-			'picture' => $request->input('picture')
+			'picture' => $request->input('picture'),
+			'affiliations' => $request->input('affiliations')
         ];
 
         // Sanitises the data
@@ -88,6 +89,7 @@ class UserController extends Controller
 		$currentUser->degree = $sanitisedData['degree'];
 		$currentUser->school = $sanitisedData['school'];
 		$currentUser->honours = $sanitisedData['honours'];
+		$currentUser->affiliations = $sanitisedData['affiliations'];
 
 		// Checks for existence
 		if ($request->hasFile('picture'))
@@ -140,7 +142,8 @@ class UserController extends Controller
 				'initiationClass' => 'max:25',
 				'degree' => 'max:255',
 				'school' => 'max:255',
-				'honours' => 'max:255'
+				'honours' => 'max:255',
+				'affiliations' => 'max:255'
 			]);
 		}
 		else
@@ -156,9 +159,9 @@ class UserController extends Controller
                 'degree' => 'max:255',
                 'school' => 'max:255',
                 'honours' => 'max:255',
-				'picture' => 'image'
+				'picture' => 'image',
+				'affiliations' => 'max:255'
             ]);
-
 		}
     } // End of the validator function
 
@@ -178,7 +181,8 @@ class UserController extends Controller
 			'degree' => filter_var($input['degree'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'school' => filter_var($input['school'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'honours' => filter_var($input['honours'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
-			'picture' => $input['picture']
+			'picture' => $input['picture'],
+			'affiliations' => filter_var($input['affiliations'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH)
         ];
 
         return $output;

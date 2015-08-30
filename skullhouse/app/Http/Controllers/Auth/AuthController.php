@@ -91,7 +91,8 @@ class AuthController extends Controller
             'degree' => NULL,
             'school' => NULL,
             'honours' => NULL,
-			'extension' => 'png'
+			'extension' => 'png',
+			'affiliations' => NULL
 		]);
     } // End of the create function
 
