@@ -1,6 +1,6 @@
 <!-- Displays messages if sent along in the session -->
 @if (Session::has('flashMessage'))
-	<div class="alert alert-success">
+	<div class="alert alert-success" style="z-index:4">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 		{!! Session::get('flashMessage') !!}
 	</div>
