@@ -60,7 +60,7 @@ class UserController extends Controller
 		if ($data['email'] === Auth::user()->email)
 		{
 			$temp = Auth::user();
-			$temp->email = $data['email'] . '123';
+			$temp->email = $sanitisedData['email'] . '123';
 			$temp->save();
 		}
 
@@ -89,20 +89,23 @@ class UserController extends Controller
 		$currentUser->school = $sanitisedData['school'];
 		$currentUser->honours = $sanitisedData['honours'];
 
-		// Checks if image was uploaded
-		if($sanitisedData['picture'] !== NULL)
+		// Checks for existence
+		if ($request->hasFile('picture'))
 		{
-			// Replaces the old profile.png
-			$path = '/assets/img/profiles/' . $currentUser->obfuscationCode . '/profile.';
-			if (File::exists($path . $currentUser->extension))
-	        {File::delete($path . $currentUser->extension);}
+			// Deletes the old image
+			$path = public_path(). '/assets/img/profiles/' . $currentUser->obfuscationCode;
+			if (File::exists($path . '/profile.' . $currentUser->extension))
+			{File::delete($path . '/profile.' . $currentUser->extension);}
+
 			$file = $request->file('picture');
-			$extension = $file->getExtension();
+			$extension = Input::file('picture')->getClientOriginalExtension();
 
 			$currentUser->extension = $extension;
-			$currentUser->picture = $path . $extension;
-			Storage::disk('local')->put($path .$extension,  File::get($file));
+			$currentUser->picture = $path . '/profile.' . $extension;
+			$filePath = public_path() . '/assets/img/profiles/' . $currentUser->obfuscationCode;
+			$success = Input::file('picture')->move($filePath, 'profile.' . $currentUser->extension);
 		}
+
 		// Stores the new profile
 		$currentUser->save();
 
@@ -126,7 +129,7 @@ class UserController extends Controller
      */
     protected function validator(array $data)
     {
-		if($data['picture'] !== NULL)
+		if($data['picture'] === NULL)
 		{
 	        return Validator::make($data, [
 				'firstName' => 'required|alpha_dash|max:30',
@@ -137,13 +140,12 @@ class UserController extends Controller
 				'initiationClass' => 'max:25',
 				'degree' => 'max:255',
 				'school' => 'max:255',
-				'honours' => 'max:255',
-				'picture' => 'image'
+				'honours' => 'max:255'
 			]);
 		}
 		else
 		{
-			// No picture uploaded
+			// Picture was uploaded
 			return Validator::make($data, [
                 'firstName' => 'required|alpha_dash|max:30',
                 'middleInitial' => 'alpha|max:1',
@@ -153,7 +155,8 @@ class UserController extends Controller
                 'initiationClass' => 'max:25',
                 'degree' => 'max:255',
                 'school' => 'max:255',
-                'honours' => 'max:255'
+                'honours' => 'max:255',
+				'picture' => 'image'
             ]);
 
 		}
