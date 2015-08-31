@@ -41,7 +41,8 @@
 			Route::get('services/photography', 'ServicesController@photography');
 	*/
 	// Brothers Page
-	Route::get('brothers', 'PagesController@brothers');
+	Route::get('brothers', 'BrothersController@index');
+	Route::get('brothers/{brother}', 'BrothersController@getBrother');
 
 	// Contact Page
 	Route::get('contact', 'PagesController@contact');
@@ -67,6 +68,12 @@
 		// Password reset routes
 			Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 			Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+		// Email confirmation route
+			Route::get('register/verify/{inputCode}', [
+				'as' => 'confirmation_path',
+				'uses' => 'Auth\AuthController@confirm'
+			]);
 
 	// Authenticed routes
 		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
