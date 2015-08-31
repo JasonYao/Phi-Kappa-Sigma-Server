@@ -28,8 +28,24 @@ class UserController extends Controller
         $title = 'Profile';
 		$brother = Auth::user();
 
-        return view('private/profile', compact('title', 'brother'));
+        return view('private/profile', compact('brother'));
     } // End of the get profile function
+
+	protected function validateSchools(array $school)
+	{
+		return Validator::make($school, [
+			'finalString' => 'max:255'
+		]);
+	} // End of the validate schools function
+
+	protected function sanitiseSchool(array $schools)
+	{
+		$arraySize = sizeof($schools);
+		$output = array_fill(0, $arraySize, 'testing');
+		foreach ($schools as $index => $school)
+		{$output[$index] = filter_var($school, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);}
+		return $output;
+	} // End of the sanitise schools function
 
     /**
      * Update the specified resource in storage.
@@ -40,6 +56,37 @@ class UserController extends Controller
      */
     protected function updateProfile(Request $request)
     {
+		// Arrayises the checkboxes
+		$schoolsChecked = Input::get('school');
+		$sanitisedSchools = Input::get('school');
+		if(is_array($schoolsChecked))
+		{$sanitisedSchools = $this->sanitiseSchool($schoolsChecked);}
+
+		$schoolSize = sizeof($sanitisedSchools);
+		$finalSchoolString = "";
+		if ($schoolSize === 1)
+		{$finalSchoolString = $finalSchoolString . $sanitisedSchools[0];}
+		else
+		{
+			$finalSchoolString = $finalSchoolString . $sanitisedSchools[0];
+			foreach($sanitisedSchools as $key => $addedSchool)
+			{
+				if ($key < 1) continue;
+				$finalSchoolString = $finalSchoolString . ' &amp; ' . $addedSchool;
+			}
+		}
+
+		$schoolArray = ['finalString' => $finalSchoolString];
+        $schoolValidator = $this->validateSchools($schoolArray);
+
+        if ($schoolValidator->fails())
+        {
+            // User input is invalid, flashes errors and goes back to page
+            $messages = $schoolValidator->messages();
+            \Session::flash('flashMessage', $messages);
+            return back()->withInput();
+        }
+
 		// Arrayises the request (yeah, it's now a verb, suck my dick english profs)
         $data = [
 			'firstName' => $request->input('firstName'),
@@ -49,7 +96,6 @@ class UserController extends Controller
 			'description' => $request->input('description'),
 			'initiationClass' => $request->input('initiationClass'),
 			'degree' => $request->input('degree'),
-			'school' => $request->input('school'),
 			'honours' => $request->input('honours'),
 			'picture' => $request->input('picture'),
 			'affiliations' => $request->input('affiliations'),
@@ -89,7 +135,7 @@ class UserController extends Controller
 		$currentUser->description = $sanitisedData['description'];
 		$currentUser->initiationClass = $sanitisedData['initiationClass'];
 		$currentUser->degree = $sanitisedData['degree'];
-		$currentUser->school = $sanitisedData['school'];
+		$currentUser->school = $finalSchoolString;
 		$currentUser->honours = $sanitisedData['honours'];
 		$currentUser->affiliations = $sanitisedData['affiliations'];
 		$currentUser->seoExternal = $sanitisedData['seoExternal'];
@@ -155,7 +201,6 @@ class UserController extends Controller
 				'description' => 'max:65534',
 				'initiationClass' => 'max:25',
 				'degree' => 'max:255',
-				'school' => 'max:255',
 				'honours' => 'max:255',
 				'affiliations' => 'max:255',
 				'seoExternal' => 'max:30'
@@ -172,7 +217,6 @@ class UserController extends Controller
                 'description' => 'max:65534',
                 'initiationClass' => 'max:25',
                 'degree' => 'max:255',
-                'school' => 'max:255',
                 'honours' => 'max:255',
 				'picture' => 'image',
 				'affiliations' => 'max:255',
@@ -195,7 +239,6 @@ class UserController extends Controller
 			'description' => filter_var($input['description'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'initiationClass' => filter_var($input['initiationClass'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'degree' => filter_var($input['degree'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
-			'school' => filter_var($input['school'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'honours' => filter_var($input['honours'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'picture' => $input['picture'],
 			'affiliations' => filter_var($input['affiliations'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),

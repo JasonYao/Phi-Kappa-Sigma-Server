@@ -5,7 +5,13 @@
 @overwrite
 
 @section('text')
-	<h1><span>{{ $brother->firstName . ' ' . $brother->lastName }}</span></h1>
+
+	@if(($brother->middleInitial !== NULL) && ($brother->middleInitial !== ''))
+		<h1><span>{{$brother->firstName . ' ' . $brother->middleInitial . ' ' . $brother->lastName}}</span></h1>
+	@else
+		<h1><span>{{$brother->firstName . ' ' . $brother->lastName}}</span></h1>
+	@endif
+
 	<a href="{{$brother->picture}}">
 		<ul class="enlarge">
 			<li>
@@ -71,3 +77,4 @@
 @section('js')
 	@include('includes.partials.js.profile')
 @overwrite
+

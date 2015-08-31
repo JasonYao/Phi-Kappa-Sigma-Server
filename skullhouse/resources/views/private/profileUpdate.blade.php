@@ -55,7 +55,21 @@
 
 		{!! Form::text('degree', $brother->degree, array('class' => 'form-control', 'placeholder' => 'Degree (e.g. B.S. Computer Science 2018)')) !!}
 
-		{!! Form::text('school', $brother->school, array('class' => 'form-control', 'placeholder' => 'School (e.g. Courant Institute of Mathematical Sciences)')) !!}
+		<!-- School Selection -->
+		<p>School(s)</p>
+<p>College of Arts and Sciences{!! Form::checkbox('school[]', 'College of Arts and Sciences') !!}</p>
+<p>College of Dentistry{!! Form::checkbox('school[]', 'College of Dentistry') !!}</p>
+<p>College of Nursing{!! Form::checkbox('school[]', 'College of Nursing') !!}</p>
+<p>Gallatin School of Individualized Study{!! Form::checkbox('school[]', 'Gallatin School of Individualized Study') !!}</p>
+<p>Leonard N. Stern School of Business{!! Form::checkbox('school[]', 'Leonard N. Stern School of Business') !!}</p>
+<p>Liberal Studies Program{!! Form::checkbox('school[]', 'Liberal Studies Program') !!}</p>
+<p>Polytechnic School of Engineering{!! Form::checkbox('school[]', 'Polytechnic School of Engineering') !!}</p>
+<p>School of Professional Studies{!! Form::checkbox('school[]', 'School of Professional Studies') !!}</p>
+<p>Silver School of Social Work{!! Form::checkbox('school[]', 'Silver School of Social Work') !!}</p>
+<p>Steinhardt School of Culture, Education, and Human Development{!! Form::checkbox('school[]', 'Steinhardt School of Culture, Education, and Human Development') !!}</p>
+<p>Tisch School of the Arts{!! Form::checkbox('school[]', 'Tisch School of the Arts') !!}</p>
+<p>NYU Abu Dhabi{!! Form::checkbox('school[]', 'NYU Abu Dhabi') !!}</p>
+<p>NYU Shanghai{!! Form::checkbox('school[]', 'NYU Shanghai') !!}</p>
 
 		{!! Form::text('honours', $brother->honours, array('class' => 'form-control', 'placeholder' => 'Honours & awards')) !!}
 
