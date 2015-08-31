@@ -5,10 +5,10 @@ use Auth;
 use Illuminate\Http\Request;
 use Validator;
 use File;
-use Storage;
 use Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Image;
 
 class UserController extends Controller
 {
@@ -106,6 +106,15 @@ class UserController extends Controller
 			$currentUser->picture = '/assets/img/profiles/' . $currentUser->obfuscationCode . '/profile.' . $extension;
 			$filePath = public_path() . '/assets/img/profiles/' . $currentUser->obfuscationCode;
 			$success = Input::file('picture')->move($filePath, 'profile.' . $currentUser->extension);
+
+			// Creates a thumbnail
+			$imageOriginal = public_path() . '/assets/img/profiles/' . $currentUser->obfuscationCode . '/profile.' . $currentUser->extension;
+			$imageThumbnail =  public_path() . '/assets/img/profiles/' . $currentUser->obfuscationCode . '/profileThumbnail.' . $currentUser->extension;
+
+			Image::configure(array('driver' => 'imagick'));
+			$img = Image::make($imageOriginal);
+			$img->resize(200, 200);
+			$img->save($imageThumbnail);
 		}
 
 		// Stores the new profile

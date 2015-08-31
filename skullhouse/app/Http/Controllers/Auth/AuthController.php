@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 use File;
+use Image;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -140,6 +141,15 @@ class AuthController extends Controller
 
 		// Copies over a default image
 		File::copy(public_path(). '/assets/img/profiles/profile.png', $path . '/profile.png');
+
+		// Creates a thumbnail
+		$imageOriginal = public_path() . '/assets/img/profiles/' . $obf . '/profile.png';
+		$imageThumbnail = public_path() . '/assets/img/profiles/' . $obf . '/profileThumbnail.png';
+
+		Image::configure(array('driver' => 'imagick'));
+		$img = Image::make($imageOriginal);
+		$img->resize(200, 200);
+		$img->save($imageThumbnail);
 
 		// Stores the user object
 		$newUser->save();
