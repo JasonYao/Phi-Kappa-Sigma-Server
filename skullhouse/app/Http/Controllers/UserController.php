@@ -53,7 +53,7 @@ class UserController extends Controller
 			'honours' => $request->input('honours'),
 			'picture' => $request->input('picture'),
 			'affiliations' => $request->input('affiliations'),
-			'seo' => $request->input('seo')
+			'seoExternal' => $request->input('seoExternal')
         ];
 
         // Sanitises the data
@@ -92,7 +92,7 @@ class UserController extends Controller
 		$currentUser->school = $sanitisedData['school'];
 		$currentUser->honours = $sanitisedData['honours'];
 		$currentUser->affiliations = $sanitisedData['affiliations'];
-		$currentUser->seo = $sanitisedData['seo'];
+		$currentUser->seoExternal = $sanitisedData['seoExternal'];
 
 		// Checks for existence
 		if ($request->hasFile('picture'))
@@ -158,7 +158,7 @@ class UserController extends Controller
 				'school' => 'max:255',
 				'honours' => 'max:255',
 				'affiliations' => 'max:255',
-				'seo' => 'max:30'
+				'seoExternal' => 'max:30'
 			]);
 		}
 		else
@@ -176,7 +176,7 @@ class UserController extends Controller
                 'honours' => 'max:255',
 				'picture' => 'image',
 				'affiliations' => 'max:255',
-				'seo' => 'max:30'
+				'seoExternal' => 'max:30'
             ]);
 		}
     } // End of the validator function
@@ -199,7 +199,7 @@ class UserController extends Controller
 			'honours' => filter_var($input['honours'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
 			'picture' => $input['picture'],
 			'affiliations' => filter_var($input['affiliations'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
-			'seo' => filter_var($input['seo'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH)
+			'seoExternal' => filter_var($input['seoExternal'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH)
         ];
 
         return $output;

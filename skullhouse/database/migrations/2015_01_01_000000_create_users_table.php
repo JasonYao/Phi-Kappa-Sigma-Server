@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
 			$table->string('picture')->nullable();
 			$table->string('thumbnail')->nullable();
 			$table->string('seo')->nullable();
+			$table->string('seoExternal')->nullable();
 			$table->string('confirmationCode')->nullable(); // If code is null, account is confirmed
 			$table->string('obfuscationCode'); // Don't null this shit, since image folders depend on this
 			$table->string('extension')->default('png');

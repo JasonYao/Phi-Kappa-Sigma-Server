@@ -134,6 +134,7 @@ class AuthController extends Controller
 		$newUser->picture = '/assets/img/profiles/' . $obf . '/profile.png';
 		$newUser->thumbnail = '/assets/img/profiles/' . $obf . '/profileThumbnail.png';
 		$newUser->seo = $newUser->firstName . $newUser->lastName;
+		$newUser->seoExternal = $newUser->firstName . $newUser->lastName;
 
 		// Creates a user directory
 		$path = public_path(). '/assets/img/profiles/' . $obf;
