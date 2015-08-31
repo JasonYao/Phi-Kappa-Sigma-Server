@@ -133,6 +133,7 @@ class AuthController extends Controller
 		$newUser->confirmationCode = str_random(20);
 		$newUser->picture = '/assets/img/profiles/' . $obf . '/profile.png';
 		$newUser->thumbnail = '/assets/img/profiles/' . $obf . '/profileThumbnail.png';
+		$newUser->seo = $newUser->firstName . $newUser->lastName;
 
 		// Creates a user directory
 		$path = public_path(). '/assets/img/profiles/' . $obf;
@@ -187,7 +188,20 @@ class AuthController extends Controller
         $user->save();
 
         \Session::flash('flashMessage', 'You have successfully verified your account');
-        return redirect('login');
+        return redirect()->intended('dashboard');
+    }
+
+	/**
+     * Handle an authentication attempt.
+     *
+     * @return Response
+     */
+    public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'confirmationCode' => NULL])) {
+            // Authentication passed
+            return redirect()->intended('dashboard');
+        }
     }
 
 } // End of the auth controller

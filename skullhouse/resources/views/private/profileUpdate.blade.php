@@ -61,6 +61,9 @@
 
 		{!! Form::text('affiliations', $brother->affiliations, array('class' => 'form-control', 'placeholder' => 'Affiliations (e.g. fencing team, college libertarians)')) !!}
 
+		{!! Form::label('seo', 'SEO link') !!}
+		{!!  Form::text('seo', $brother->seo, array('class' => 'form-control', 'placeholder' => 'The link your bio page links to (e.g. /brothers/Kickass24/)')) !!}
+
 		{!! Form::submit('Update profile', array('class' => 'btn btn-lg btn-primary btn-block')) !!}
 	</form>
 
