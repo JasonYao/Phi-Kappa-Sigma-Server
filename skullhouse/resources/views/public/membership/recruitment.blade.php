@@ -19,6 +19,6 @@
 
 <p>Not all applications are successful.</p>
 
-<p><a href="/membership/faq/"><span>FAQs</span></a> | <a href="/membership/expectations/"><span>Membership Expectations</span></a></p>
+<p><a href="/membership/faqs/"><span>FAQs</span></a> | <a href="/membership/expectations/"><span>Membership Expectations</span></a></p>
 
 @endsection
