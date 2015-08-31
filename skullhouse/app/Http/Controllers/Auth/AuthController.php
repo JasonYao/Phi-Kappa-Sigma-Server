@@ -131,6 +131,7 @@ class AuthController extends Controller
 		$newUser->obfuscationCode = $obf;
 		$newUser->confirmationCode = str_random(20);
 		$newUser->picture = '/assets/img/profiles/' . $obf . '/profile.png';
+		$newUser->thumbnail = '/assets/img/profiles/' . $obf . '/profileThumbnail.png';
 
 		// Creates a user directory
 		$path = public_path(). '/assets/img/profiles/' . $obf;
