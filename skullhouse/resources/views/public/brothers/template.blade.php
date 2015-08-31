@@ -5,7 +5,7 @@
 @overwrite
 
 @section('text')
-	<h1><span>{{ $brother->firstName . ' ' . $brother->lastName }}</span></h1>
+	<h1><span>{{ $brother->firstName . ' ' $brother->middleInitial '' . $brother->lastName }}</span></h1>
 	<a href="{{$brother->picture}}">
 		<ul class="enlarge">
 			<li>
@@ -63,7 +63,7 @@
 
 	<hr>
 	<p>
-		Click <a href="/brothers/"><span>here</span></a> to head back to the brothers page
+		<a href="/brothers/"><span>Return to Brothers directory</span></a>
 	</p>
 
 @endsection
