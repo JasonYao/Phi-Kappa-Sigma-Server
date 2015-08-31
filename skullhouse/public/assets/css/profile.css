@@ -1,7 +1,7 @@
 /* Page specific styling for profile page */
 
 /* Image enlargement styling */
-    ul.enlarge{
+    ul.enlarge{ */
     	list-style-type:none; /*remove the bullet point*/
     	margin-left:0;
     }
@@ -65,3 +65,37 @@
     }
 
 
+/* Other testing css enlargement */
+figure { 
+  float: center; 
+  margin: 20px 100px 0px 100px; 
+  background: white;
+  border: 10px solid white; 
+  -webkit-box-shadow: 0 3px 10px #ccc; 
+  -moz-box-shadow: 0 3px 10px #ccc;
+  -webkit-transition: all 0.7s ease; 
+  -moz-transition: all 1s ease;
+  position: relative;
+}
+
+figcaption { 
+  text-align: center; 
+  display: block; 
+  font-size: 12px; 
+  font-style: italic; 
+}
+
+figure img { 
+  width: 100%; /* Scale down */
+}
+
+figure:hover {
+  -webkit-box-shadow: 0 3px 10px #666; -moz-box-shadow: 0 3px 10px #666;
+}
+
+figure:focus {
+  outline: none;
+	-webkit-transform: scale(1.5); -moz-transform: scale(1.5);
+   -webkit-box-shadow: 0 3px 10px #666; -moz-box-shadow: 0 3px 10px #666;
+  z-index: 100;
+}
