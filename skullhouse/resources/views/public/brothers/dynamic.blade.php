@@ -1,8 +1,9 @@
-<h1><span>BROTHERS</span></h1>
+<div id="brothers">
+<h1>BROTHERS</h1>
 <hr>
 
 	<p>
-		To view a Skull's biography, click his name. To update your biography, click <a href="/login/"><span>here</span></a>.
+		To view a Skull's biography, click his name. To update your biography, click <a href="/login/" class="exception">here</a>.
 	</p>
 <hr>
 
@@ -27,3 +28,4 @@
 @include('public.brothers.classes.iota')
 
 @include('public.brothers.classes.kappa')
+</div>

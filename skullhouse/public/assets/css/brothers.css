@@ -1,0 +1,19 @@
+h3, h1 {
+	color: #8D734A;
+}
+
+a:link, a:visited {
+	color: #FFF;
+}
+
+a:hover {
+	color: #8D734A;
+}
+
+a.exception:link, a.exception:visited {
+	color: #8D734A;
+}
+
+a.exception:hover {
+	color: #FFF;
+}
