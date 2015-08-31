@@ -5,61 +5,67 @@
 @overwrite
 
 @section('text')
-	<h1><span>{{ Auth::user()->firstName . ' ' . Auth::user()->lastName }}</span></h1>
-	<a href="{{Auth::user()->picture}}">
+	<h1><span>{{ $brother->firstName . ' ' . $brother->lastName }}</span></h1>
+	<a href="{{$brother->picture}}">
 		<ul class="enlarge">
 			<li>
-				<img src="{{Auth::user()->thumbnail}}" width="200px" height="200px" alt="{{Auth::user()->firstName . " " . Auth::user()->lastName}}" />
+				<img src="{{$brother->thumbnail}}" width="200px" height="200px" alt="{{$brother->firstName . " " . $brother->lastName}}" />
 				<span>
-					<img src="{{Auth::user()->picture}}" width="300px" height="300px" alt="{{Auth::user()->firstName . " " . Auth::user()->lastName}}" />
-					<br>{{Auth::user()->firstName . " " . Auth::user()->lastName}}
+					<img src="{{$brother->picture}}" width="300px" height="300px" alt="{{$brother->firstName . " " . $brother->lastName}}" />
+					<br>{{$brother->firstName . " " . $brother->lastName}}
 				</span>
 			</li>
 		</ul>
 	</a>
 	<hr>
 
-	@if((Auth::user()->initiationClass !== NULL)
-	&& (Auth::user()->initiationClass !== ""))
+	@if(($brother->initiationClass !== NULL)
+	&& ($brother->initiationClass !== ""))
 	<!-- Initiation Class -->
 	<h3><span>Initiation Class</span></h3>
-	<p>{{Auth::user()->initiationClass}}</p>
+	<p>{{$brother->initiationClass}}</p>
 	@endif
 
-	@if((Auth::user()->school !== NULL)
-	&& (Auth::user()->school !== ""))
+	@if(($brother->school !== NULL)
+	&& ($brother->school !== ""))
 	<!-- School at NYU -->
 	<h3><span>School</span></h3>
-	<p>{{Auth::user()->school}}</p>
+	<p>{{$brother->school}}</p>
 	@endif
 
-	@if((Auth::user()->degree !== NULL)
-	&& (Auth::user()->degree !== ""))
+	@if(($brother->degree !== NULL)
+	&& ($brother->degree !== ""))
 	<!-- Degree -->
 	<h3><span>Degree</span></h3>
-	<p>{{Auth::user()->degree}}</p>
+	<p>{{$brother->degree}}</p>
 	@endif
 
-	@if((Auth::user()->affiliations !== NULL)
-	&& (Auth::user()->affiliations !== ""))
+	@if(($brother->affiliations !== NULL)
+	&& ($brother->affiliations !== ""))
 	<!-- Affiliations -->
 	<h3><span>Affiliations</span></h3>
-	<p>{{Auth::user()->affiliations}}</p>
+	<p>{{$brother->affiliations}}</p>
 	@endif
 
-	@if((Auth::user()->honours !== NULL)
-	&& (Auth::user()->honours != ""))
+	@if(($brother->honours !== NULL)
+	&& ($brother->honours != ""))
 	<!-- Honours and Awards -->
 	<h3><span>Honours and Awards</span></h3>
-	<p>{{Auth::user()->honours}}</p>
+	<p>{{$brother->honours}}</p>
 	@endif
 
-	@if((Auth::user()->description !== NULL)
-	&& (Auth::user()->description !== ""))
+	@if(($brother->description !== NULL)
+	&& ($brother->description !== ""))
 	<!-- Biography -->
 	<h3><span>Biography</span></h3>
-	<p>{{Auth::user()->description}}</p>
+	<p>{{$brother->description}}</p>
 	@endif
+
+	<hr>
+	<p>
+		Click <a href="/dashboard/"><span>here</span></a> to head back to your dashboard
+	</p>
+
 @endsection
 
 @section('js')

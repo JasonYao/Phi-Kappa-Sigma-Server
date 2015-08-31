@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use File;
 use Image;
+use Mail;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -155,8 +156,38 @@ class AuthController extends Controller
 		// Stores the user object
 		$newUser->save();
 
-		\Session::flash('flashMessage', 'Registration complete!');
+		// Sends a confirmation email to the new member
+		$confirmationCode = $newUser->confirmationCode;
+		$user = $newUser;
+		Mail::send('emails.verify', ['user' => $user], function ($m) use ($user) {
+            $m->to($user->email, $user->firstName)->subject('Skullhouse: verify your email address');
+        });
+
+		\Session::flash('flashMessage', 'Registration complete, please check your email!');
 		return redirect('login');
 	} // End of the registration post function
+
+	protected function confirm($inputCode)
+    {
+        if( ! $inputCode)
+        {
+			\Session::flash('flashMessage', 'Invalid confirmation code');
+			return redirect('/');
+        }
+
+		$user = User::where('confirmationCode', $inputCode)->first();
+
+        if ( ! $user)
+        {
+			\Session::flash('flashMessage', 'Invalid confirmation code');
+            return redirect('/');
+        }
+
+        $user->confirmationCode = NULL;
+        $user->save();
+
+        \Session::flash('flashMessage', 'You have successfully verified your account');
+        return redirect('login');
+    }
 
 } // End of the auth controller

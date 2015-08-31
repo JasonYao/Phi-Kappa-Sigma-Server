@@ -26,8 +26,9 @@ class UserController extends Controller
     {
         // Data variables passed to the view
         $title = 'Profile';
+		$brother = Auth::user();
 
-        return view('private/profile', compact('title'));
+        return view('private/profile', compact('title', 'brother'));
     } // End of the get profile function
 
     /**
@@ -129,8 +130,9 @@ class UserController extends Controller
 	{
 		// Data variables passed to the view
 		$title = 'Profile Update';
+		$brother = Auth::user();
 
-		return view('private/profileUpdate', compact('title'));
+		return view('private/profileUpdate', compact('title', 'brother'));
 	} // End of the get profile function
 
 	/**
