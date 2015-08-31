@@ -19,37 +19,43 @@
 	</a>
 	<hr>
 
-	@if(Auth::user()->initiationClass !== NULL)
-	<!-- Initiation class -->
-	<h3><span>Initiation class</span></h3>
+	@if((Auth::user()->initiationClass !== NULL)
+	&& (Auth::user()->initiationClass !== ""))
+	<!-- Initiation Class -->
+	<h3><span>Initiation Class</span></h3>
 	<p>{{Auth::user()->initiationClass}}</p>
 	@endif
 
-	@if(Auth::user()->school !== NULL)
+	@if((Auth::user()->school !== NULL)
+	&& (Auth::user()->school !== ""))
 	<!-- School at NYU -->
 	<h3><span>School</span></h3>
 	<p>{{Auth::user()->school}}</p>
 	@endif
 
-	@if(Auth::user()->degree !== NULL)
+	@if((Auth::user()->degree !== NULL)
+	&& (Auth::user()->degree !== ""))
 	<!-- Degree -->
 	<h3><span>Degree</span></h3>
 	<p>{{Auth::user()->degree}}</p>
 	@endif
 
-	@if(Auth::user()->affiliations !== NULL)
+	@if((Auth::user()->affiliations !== NULL)
+	&& (Auth::user()->affiliations !== ""))
 	<!-- Affiliations -->
 	<h3><span>Affiliations</span></h3>
 	<p>{{Auth::user()->affiliations}}</p>
 	@endif
 
-	@if(Auth::user()->honours !== NULL)
+	@if((Auth::user()->honours !== NULL)
+	&& (Auth::user()->honours != ""))
 	<!-- Honours and Awards -->
 	<h3><span>Honours and Awards</span></h3>
 	<p>{{Auth::user()->honours}}</p>
 	@endif
 
-	@if(Auth::user()->description !== NULL)
+	@if((Auth::user()->description !== NULL)
+	&& (Auth::user()->description !== ""))
 	<!-- Biography -->
 	<h3><span>Biography</span></h3>
 	<p>{{Auth::user()->description}}</p>
