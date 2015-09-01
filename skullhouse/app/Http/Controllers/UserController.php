@@ -64,7 +64,11 @@ class UserController extends Controller
 
 		$schoolSize = sizeof($sanitisedSchools);
 		$finalSchoolString = "";
-		if ($schoolSize === 1)
+		if($schoolSize === 0)
+		{
+			// Does nothing
+		}
+		elseif ($schoolSize === 1)
 		{$finalSchoolString = $finalSchoolString . $sanitisedSchools[0];}
 		else
 		{
@@ -86,6 +90,14 @@ class UserController extends Controller
             \Session::flash('flashMessage', $messages);
             return back()->withInput();
         }
+
+		// Patches the values in
+		if ($schoolSize === 0)
+		{
+			// Does nothing
+		}
+		else
+		{$currentUser->school = $finalSchoolString;}
 
 		// Arrayises the request (yeah, it's now a verb, suck my dick english profs)
         $data = [
@@ -135,7 +147,6 @@ class UserController extends Controller
 		$currentUser->description = $sanitisedData['description'];
 		$currentUser->initiationClass = $sanitisedData['initiationClass'];
 		$currentUser->degree = $sanitisedData['degree'];
-		$currentUser->school = $finalSchoolString;
 		$currentUser->honours = $sanitisedData['honours'];
 		$currentUser->affiliations = $sanitisedData['affiliations'];
 		$currentUser->seoExternal = $sanitisedData['seoExternal'];
