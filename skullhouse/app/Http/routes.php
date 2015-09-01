@@ -50,6 +50,10 @@
 	// Events Page
 	Route::get('events', 'PagesController@events');
 
+	// Room Reservation Page
+	Route::get('reservation', 'ReservationController@getReservation');
+	Route::post('reservation', array('before' => 'csrf', 'uses' => 'ReservationController@postReservation'));
+
 /* Private Access (account required) */
 	// Login & Registration
 		// Authentication routes
