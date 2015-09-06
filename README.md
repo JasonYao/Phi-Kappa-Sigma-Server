@@ -45,6 +45,20 @@ nano profileUpdate.blade.php # Again, doesn't matter which editor you use
 # CTRL + x + y to save your changes
 ```
 
+3.) Update the brothers page with the current initiation class
+
+```
+cd /usr/share/nginx/html/SkullhouseNYU/skullhouse/resources/views/public/brothers
+nano dynamic.blade.php
+# At the end, before the `</div>` tag, add underneath the other classes `@include('public.brothers.classes.CURRENT_INITIATION_CLASS_HERE')`
+CTRL + x + y # Save your changes
+cd classes
+cp kappa.blade.php CURRENT_INITIATION_CLASS_HERE.blade.php
+nano CURRENT_INITIATION_CLASS_HERE.blade.php
+# Make your roster changes here, the template is pretty easy to follow and change
+CTRL + x + y # Save your changes
+```
+
 ## Technical shit
 
 ### The overall stack
