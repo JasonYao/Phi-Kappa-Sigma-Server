@@ -7,29 +7,55 @@ Updated at the start of: *Fall 2015*
 
 Online site for Phi Kappa Sigma's Delta Phi (New York University) chapter at https://www.skullhouse.nyc.
 
-### Technical shit
-
-Ignore unless you want to understand the underlying architecture of the server. If just updating for a new semester, go here.
-
-
-
 ## What to edit every time
 
-## [Specifically, what & how to edit every semester](#NewSemester)
+Go to `/usr/share/nginx/html/SkullhouseNYU/skullhouse` using the command `cd /usr/share/nginx/html/SkullhouseNYU/skullhouse`
 
+Update shit with these two commands
 
+```
+sudo composer self-update # Will update the composer version
+sudo composer update # Will update the package dependencies, flush caches, recompile routes, and cache everything again
+```
+
+## Specifically, what & how to edit every semester
+
+1.) Update the events page.
+
+All commands below assume you are in the skullhouse subfolder from the commands above
+```
+cd resources/views/public/events # Moves you into the events directory
+nano events.blade.php # Or whatever editor you'd like, vim is good if you know how to use it
+# Replace fall2015 in the include line with whatever semester it is.
+# CTRL + x + y to save your changes
+cp fall2015.blade.php YOUR_SEMESTER_HERE.blade.php # Copies boiler plate of events for you to edit
+nano YOUR_SEMESTER_HERE.blade.php
+# Your events here
+# CTRL + x + y to save your changes
+```
+
+2.) Update the options available for initiation class
+
+```
+cd /usr/share/nginx/html/SkullhouseNYU/skullhouse/resources/views/private/ # To reset from wherever the hell you are
+nano profileUpdate.blade.php # Again, doesn't matter which editor you use
+# Scroll down until you get to the initiation class options, and then add the option
+# e.g. currently latest initation class will be lambda, so scroll until lambda class option, and press enter for a new line
+# Add the latest initiation class (e.g. after lambda it's Mu class)
+# CTRL + x + y to save your changes
+```
 
 ## Technical shit
 
-Ignore unless you want to understand the underlying architecture of the server. If just updating for a new semester, read the above sections.
-
 ### The overall stack
+
+Ignore unless you want to understand the underlying architecture of the server. If just updating for a new semester, go to the above sections.
 
 ### The LEMP stack (part 1 of 3)
 
 The underlying stack for the server is a LEMP (*L*inux *N*ginx *M*ySQL *P*HP).
 
-Linux: Self-explainatory, it's an open sourced served running on an x86_64 Ubuntu server running 14.04 LTS. When the next version of the LTS is released by the Ubuntu Foundation (16.04), this server's stack
+Linux: Self-explanatory, it's an open sourced served running on an x86_64 Ubuntu server running 14.04 LTS. When the next version of the LTS is released by the Ubuntu Foundation (16.04), this server's stack
  will be migrated over to the new server.
 
 Nginx: An exceedingly fast, robust, secure, scalable, and easy to use reverse proxy server. The magic happens in the [nginx folder](nginx/), inside which there is the [configuration file](nginx/nginx.conf),
@@ -77,4 +103,4 @@ This shows shit to the end user. Error messages can be flashed to the viewing by
 
 ## Licensing
 
-Licensing for this repo follows the GNU GPU license, as described [here](LICENSE.md).
+Licensing for this repo follows the GNU GPU license, as described [here](LICENSE).
