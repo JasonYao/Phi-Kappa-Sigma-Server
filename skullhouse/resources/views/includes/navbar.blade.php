@@ -57,6 +57,7 @@
 								<hr>
 								@if (Auth::check())
 									<li class="{{ Request::is('dashboard') ? 'live' : '' }}"><a href="/dashboard/">{{Auth::user()->firstName . "'s Dashboard"}}</a></li>
+									<li class="{{ Request::is('logout') ? 'live' : '' }}"><a href="/logout/">Logout</a></li>
 								@else
 									<li class="{{ Request::is('login') ? 'live' : '' }}"><a href="/login/">Login</a></li>
 									<li class="{{ Request::is('register') ? 'live' : '' }}"><a href="/register/">Registration</a></li>
