@@ -68,7 +68,9 @@ deal with validation and sanitation of any and all user input - *IF YOU ARE PLAN
 
 #### The views
 
-This shows shit to the end user. Error messages can be flashed to the viewing by ```
+This shows shit to the end user. Error messages can be flashed to the viewing by
+
+```
 	\Session::flash('flashMessage', 'Profile successfully updated!'); // Replace Profile successfully updated! with whatever message you'd like to flash to the user
 	return redirect('dashboard'); // Replace dashboard with whatever page you'd like to redirect the user to
 ```
