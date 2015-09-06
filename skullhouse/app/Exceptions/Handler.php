@@ -39,6 +39,28 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
-    }
-}
+
+		if($this->isHttpException($e))
+		{
+			switch ($e->getStatusCode()) {
+				// not found
+				case 404:
+					 \Session::flash('flashMessage', 'Sorry, that page was not found');
+					return redirect()->guest('/');
+					break;
+
+				// internal error
+				case '500':
+					 \Session::flash('flashMessage', 'Sorry, an internal server error occured');
+					return redirect()->guest('/');
+					break;
+
+				default:
+					return $this->renderHttpException($e);
+					break;
+			} // End of switch statement
+        } // End of 404 and 50x exception handling
+		else
+		{return parent::render($request, $e);}
+	} // End of render function
+} // ENd of handler class
