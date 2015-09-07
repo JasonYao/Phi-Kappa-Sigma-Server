@@ -69,7 +69,7 @@ Ignore unless you want to understand the underlying architecture of the server. 
 
 The underlying stack for the server is a LEMP (*L*inux *N*ginx *M*ySQL *P*HP).
 
-Linux: Self-explanatory, it's an open sourced served running on an x86_64 Ubuntu server running 14.04 LTS. When the next version of the LTS is released by the Ubuntu Foundation (16.04), this server's stack
+Linux: Self-explanatory, it's an open sourced server running on an x86_64 Ubuntu server running 14.04 LTS. When the next version of the LTS is released by the Ubuntu Foundation (16.04), this server's stack
  will be migrated over to the new server.
 
 Nginx: An exceedingly fast, robust, secure, scalable, and easy to use reverse proxy server. The magic happens in the [nginx folder](nginx/), inside which there is the [configuration file](nginx/nginx.conf),
@@ -98,7 +98,7 @@ DO NOT under any circumstances change this, else I will shank you.
 
 #### The routes
 
-Routing is located in the `[/usr/share/nginx/html/SkullhouseNYU/skullhouse/app/Http/routes.php](skullhouse/app/Http/routes.php)` file. This gives you an overview of every single
+Routing is located in the [/usr/share/nginx/html/SkullhouseNYU/skullhouse/app/Http/routes.php](skullhouse/app/Http/routes.php) file. This gives you an overview of every single
 URI that the application responds to, and is a great tool to check over in order to get a birds-eye-view of the application itself.
 
 #### The controllers
