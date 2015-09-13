@@ -97,7 +97,11 @@ class UserController extends Controller
 			// Does nothing
 		}
 		else
-		{$currentUser->school = $finalSchoolString;}
+		{
+			$schoolUser = Auth::user();
+			$schoolUser->school = $finalSchoolString;
+			$schoolUser->save();
+		}
 
 		// Arrayises the request (yeah, it's now a verb, suck my dick english profs)
         $data = [
