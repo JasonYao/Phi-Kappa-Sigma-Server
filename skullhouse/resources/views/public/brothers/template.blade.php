@@ -12,17 +12,13 @@
 		<h1><span>{{$brother->firstName . ' ' . $brother->lastName}}</span></h1>
 	@endif
 
-	<a href="{{$brother->picture}}">
-		<ul class="enlarge">
-			<li>
-				<img src="{{$brother->thumbnail}}" width="200px" height="200px" alt="{{$brother->firstName . " " . $brother->lastName}}" />
-				<span>
-					<img src="{{$brother->picture}}" width="300px" height="300px" alt="{{$brother->firstName . " " . $brother->lastName}}" />
-					<br>{{$brother->firstName . " " . $brother->lastName}}
-				</span>
-			</li>
-		</ul>
-	</a>
+    <a href="{{$brother->picture}}">
+    <figure contenteditable="true">
+        <img src="{{$brother->picture}}" alt="{{$brother->firstName . ' ' . $brother->lastName}}" contenteditable="false" height="200px" width="200px"/></a>
+        <figcaption contenteditable="false">{{$brother->firstName . ' ' . $brother->lastName}}</figcaption>
+    </figure>
+    </a>
+
 	<hr>
 
 	@if(($brother->initiationClass !== NULL)
