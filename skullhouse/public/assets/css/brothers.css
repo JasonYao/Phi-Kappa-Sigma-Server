@@ -1,19 +1,19 @@
-h3, h1 {
+.text h3, .text h1 {
 	color: #8D734A;
 }
 
-a:link, a:visited {
+.text a:link, .text a:visited {
 	color: #FFF;
 }
 
-a:hover {
+.text a:hover {
 	color: #8D734A;
 }
 
-a.exception:link, a.exception:visited {
+.text a.exception:link, .text a.exception:visited {
 	color: #8D734A;
 }
 
-a.exception:hover {
+.text a.exception:hover {
 	color: #FFF;
 }
