@@ -288,3 +288,8 @@
 	text-align: center;
 	z-index: 11;
 }
+
+/* Text link styling */
+.text a:visited, .text a:link {
+    color: #8D734A;
+}
