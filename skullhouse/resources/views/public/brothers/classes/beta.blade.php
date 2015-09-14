@@ -23,8 +23,8 @@
 @endif
 
 <!-- Jordan Elysée -->
-@if($brothers->where('seo', 'JordanElysée')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'JordanElysée')->first()->seoExternal}}/">Jordan Elysée</a><br>
+@if($brothers->where('seo', 'JordanElysee')->first() !== NULL)
+    <a href="/brothers/{{$brothers->where('seo', 'JordanElysee')->first()->seoExternal}}/">Jordan Elysée</a><br>
 @else
     Jordan Elysée<br>
 @endif
