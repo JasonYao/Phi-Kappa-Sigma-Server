@@ -79,6 +79,14 @@
 				'uses' => 'Auth\AuthController@confirm'
 			]);
 
+		// Phi Kap validation route
+			Route::get('PhiKap/{email}', 'PhiKapValidationController@getPhiKapValidation');
+
+			Route::get('/verify/PhiKap/{confirmationReply}', [
+                'as' => 'confirmation_path',
+                'uses' => 'PhiKapValidationController@confirm'
+            ]);
+
 	// Authenticed routes
 		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
 
