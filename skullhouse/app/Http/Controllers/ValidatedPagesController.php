@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class ValidatedPagesController extends Controller
 {
@@ -22,10 +23,9 @@ class ValidatedPagesController extends Controller
 	/* Returns views for dashboard */
 	public function getDashboard()
 	{
-		// Data variables passed to the view
-		$title = 'Dashboard';
+		$brother = Auth::user();
 
-		return view('private/dashboard', compact('title'));
+		return view('private/dashboard', compact('brother'));
 	} // End of the dashboard view
 
 } // End of the validated pages controller
