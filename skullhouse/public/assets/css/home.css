@@ -5,3 +5,7 @@ p {
 	text-align: left;
 	margin-left: 10px;
 }
+
+#footer p {
+	text-align: center;
+}
