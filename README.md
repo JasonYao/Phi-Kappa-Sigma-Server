@@ -59,7 +59,7 @@ nano CURRENT_INITIATION_CLASS_HERE.blade.php
 CTRL + x + y # Save your changes
 ```
 
-## Technical shit
+## Technical stuff
 
 ### The overall stack
 
@@ -78,7 +78,7 @@ Nginx: An exceedingly fast, robust, secure, scalable, and easy to use reverse pr
 
 MySQL: A scalable database that gets shit on for not being bleeding edge, but is definitely more than enough for our simple use cases.
 
-PHP: A shitty language that should die in the fire. Do not approach with a 10 foot pole. Chosen because of fast development time, and for no other reason.
+PHP: A terrible language that should die in the fire. Do not approach with a 10 foot pole. Chosen because of fast development time, and for no other reason.
 
 ### The Laravel application (part 2 of 3)
 
@@ -94,7 +94,7 @@ This application follows the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93v
 The database used in this application is a simple MySQL relational DB. Manual check ups on the DB can be made with `mysql -u root -p`, and then typing in the admin password.
 myPhpAdmin was disallowed access to this application due to the inherent security risks in allowing access, even indirectly through MPA, to the outside world.
 
-DO NOT under any circumstances change this, else I will shank you.
+DO NOT under any circumstances change this, without considering the security ramifications of opening a public access to the database.
 
 #### The routes
 
@@ -103,17 +103,21 @@ URI that the application responds to, and is a great tool to check over in order
 
 #### The controllers
 
-This is where the magic happends for validations and any other backend logic. Normally controllers don't fill this niche, but I hate PHP, so I'm allowed to be lazy. Controllers
-deal with validation and sanitation of any and all user input - *IF YOU ARE PLANNING ON ADDING MORE USER INPUT FORMS FOR THE LOVE OF ALL THAT IS HOLY SANITISE THAT SHIT*.
+This is where the magic happends for validations and any other backend logic. Controllers deal with validation and sanitation of any and all user input - 
+*IF YOU ARE PLANNING ON ADDING MORE USER INPUT FORMS FOR THE LOVE OF ALL THAT IS HOLY SANITISE IT*.
 
 #### The views
 
-This shows shit to the end user. Error messages can be flashed to the viewing by
+This shows stuff to the end user. Error messages can be flashed to the viewing by
 
 ```
 	\Session::flash('flashMessage', 'Profile successfully updated!'); // Replace Profile successfully updated! with whatever message you'd like to flash to the user
 	return redirect('dashboard'); // Replace dashboard with whatever page you'd like to redirect the user to
 ```
+
+#### The Model
+
+Data storage, can be thought of as an object bank that you retrieve data and attributes from.
 
 ## Licensing
 
