@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'admin@skullhouse.nyc', 'name' => 'Samuel Brown Wylie Mitchell'],
+    'from' => ['address' => env('MAIL_USERNAME', 'omega@skullhouse.nyc'), 'name' => 'Samuel Brown Wylie Mitchell'],
 
     /*
     |--------------------------------------------------------------------------
