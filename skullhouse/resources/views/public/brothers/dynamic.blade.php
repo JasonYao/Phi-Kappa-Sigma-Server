@@ -28,4 +28,6 @@
 @include('public.brothers.classes.iota')
 
 @include('public.brothers.classes.kappa')
+
+@include('public.brothers.classes.lambda')
 </div>
