@@ -6,7 +6,7 @@
 
 @section('text')
 
-	<h1><span>Phi Kap confirmation</span></h1>
+	<h1><span>Phi Kappa Sigma Delta Phi Challenge</span></h1>
 	<hr>
 
 	<p>
