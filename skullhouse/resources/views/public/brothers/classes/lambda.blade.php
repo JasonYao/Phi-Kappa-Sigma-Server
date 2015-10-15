@@ -57,9 +57,9 @@
     Mickey Shiotani<br>
 @endif
 
-<!-- Mitchell Shiotani -->
-@if($brothers->where('seo', 'MitchellShiotani')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'MitchellShiotani')->first()->seoExternal}}/">Mitchell Shiotani</a><br>
+<!-- Mitch Shiotani -->
+@if($brothers->where('seo', 'MitchShiotani')->first() !== NULL)
+    <a href="/brothers/{{$brothers->where('seo', 'MitchShiotani')->first()->seoExternal}}/">Mitch Shiotani</a><br>
 @else
-    Mitchell Shiotani<br>
+    Mitch Shiotani<br>
 @endif
