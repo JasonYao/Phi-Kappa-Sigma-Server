@@ -13,7 +13,7 @@ server {
 	
 	server_name skullhouse.nyc;
 
-	return 301 https://www.skullhouse.nyc$request_uri/;
+	return 301 https://www.skullhouse.nyc$request_uri;
 }
 
 #########################
@@ -27,7 +27,7 @@ server {
 	server_name www.skullhouse.nyc;
 	
 	root /usr/share/nginx/html/SkullhouseNYU/skullhouse/public;
-#	root /usr/share/nginx/html/Skullhouse/_site; ### SERVES OLD VERSION OF SITE ###
+#	root /usr/share/nginx/html/oldSkullhouse/_site; ### SERVES OLD VERSION OF SITE ###
 	index index.php;
 
 	location / {
