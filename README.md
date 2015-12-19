@@ -13,7 +13,7 @@ Go to `/usr/share/nginx/html/SkullhouseNYU/skullhouse` using the command `cd /us
 
 Update shit with these two commands
 
-```
+```sh
 sudo composer self-update # Will update the composer version
 sudo composer update # Will update the package dependencies, flush caches, recompile routes, and cache everything again
 ```
@@ -23,7 +23,7 @@ sudo composer update # Will update the package dependencies, flush caches, recom
 1.) Update the events page.
 
 All commands below assume you are in the skullhouse subfolder from the commands above
-```
+```sh
 cd resources/views/public/events # Moves you into the events directory
 nano events.blade.php # Or whatever editor you'd like, vim is good if you know how to use it
 # Replace fall2015 in the include line with whatever semester it is.
@@ -36,7 +36,7 @@ nano YOUR_SEMESTER_HERE.blade.php
 
 2.) Update the options available for initiation class
 
-```
+```sh
 cd /usr/share/nginx/html/SkullhouseNYU/skullhouse/resources/views/private/ # To reset from wherever the hell you are
 nano profileUpdate.blade.php # Again, doesn't matter which editor you use
 # Scroll down until you get to the initiation class options, and then add the option
@@ -47,7 +47,7 @@ nano profileUpdate.blade.php # Again, doesn't matter which editor you use
 
 3.) Update the brothers page with the current initiation class
 
-```
+```sh
 cd /usr/share/nginx/html/SkullhouseNYU/skullhouse/resources/views/public/brothers
 nano dynamic.blade.php
 # At the end, before the `</div>` tag, add underneath the other classes `@include('public.brothers.classes.CURRENT_INITIATION_CLASS_HERE')`
@@ -110,9 +110,9 @@ This is where the magic happends for validations and any other backend logic. Co
 
 This shows stuff to the end user. Error messages can be flashed to the viewing by
 
-```
-	\Session::flash('flashMessage', 'Profile successfully updated!'); // Replace Profile successfully updated! with whatever message you'd like to flash to the user
-	return redirect('dashboard'); // Replace dashboard with whatever page you'd like to redirect the user to
+```php
+\Session::flash('flashMessage', 'Profile successfully updated!'); // Replace Profile successfully updated! with whatever message you'd like to flash to the user
+return redirect('dashboard'); // Replace dashboard with whatever page you'd like to redirect the user to
 ```
 
 #### The Model
@@ -121,4 +121,4 @@ Data storage, can be thought of as an object bank that you retrieve data and att
 
 ## Licensing
 
-Licensing for this repo follows the GNU GPU license, as described [here](LICENSE).
+Licensing for this repo follows the GNU GPL license, as described [here](LICENSE).
