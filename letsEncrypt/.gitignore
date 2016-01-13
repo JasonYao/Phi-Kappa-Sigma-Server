@@ -1,2 +1,8 @@
 # The compiled builds so far
 build/
+
+# IDE ignores
+.idea/
+
+# Project ignores
+secrets.py
