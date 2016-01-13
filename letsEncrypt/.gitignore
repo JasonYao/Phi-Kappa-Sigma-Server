@@ -1,8 +1,10 @@
 # The compiled builds so far
 build/
+__pycache__
 
 # IDE ignores
 .idea/
 
 # Project ignores
 secrets.py
+logs/

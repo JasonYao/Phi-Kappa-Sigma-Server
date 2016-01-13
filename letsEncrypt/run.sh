@@ -1,9 +1,8 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 
-# Goes into the folder
-cd /usr/share/nginx/html/SkullhouseNYU/letsEncrypt/build/
+set -e
 
-# Runs the automatic TLS certification generation command
-./letsencrypt-auto --config /etc/letsencrypt/cli.ini --agree-tos certonly > ../logs/letsEncrypt-$(date +"%d-%m-%y").log
-
-# Sends an email to the omega about the status of the certificate update
+# Runs the program with the virtualenv
+source /home/jason/Env/letsencrypt/bin/activate
+python3 Emailer.py
+deactivate
