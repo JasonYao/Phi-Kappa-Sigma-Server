@@ -37,11 +37,11 @@ This module contains the actual site itself, including all dependencies, static 
 The site currently runs off of the PHP-based laravel, though the roadmap is to migrate to [django](https://www.djangoproject.com/) 
 for longer-term code stability and less code-staling.
 
-### [Automatic Bobst Study Room Reservation](room_automator/)
+### [Automatic Bobst Study Room Reservation](https://github.com/JasonYao/NYU-Bobst-Library-Reservation-Automator-Java)
 This module contains the study room automator, to reserve rooms at Bobst Library at New York University
 automatically for the chapter.
 
-### [Automatic Chapter Minutes Emailer](minutes_emailer/)
+### [Automatic Chapter Minutes Emailer](https://github.com/JasonYao/Chapter-Minutes-Emailer)
 This module contains the chapter minutes emailer, to automatically send an email to all active brothers 
 a link to the current minutes.
 
