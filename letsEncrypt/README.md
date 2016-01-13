@@ -5,6 +5,12 @@ By Jason Yao - [letsencrypt](https://letsencrypt.org/)
 We will use the Let's Encrypt service to automate the generation and deployment of each of our TLS certs, 
 such that automatic generation and deployment will occur.
 
+## Letsencrypt download
+
+```sh
+git clone https://github.com/letsencrypt/letsencrypt build
+```
+
 ## Running the program
 
 ### Using the [run](run.sh) script
