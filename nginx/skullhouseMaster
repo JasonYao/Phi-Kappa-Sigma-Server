@@ -26,7 +26,7 @@ server {
 
 	server_name www.skullhouse.nyc;
 	
-	root /usr/share/nginx/html/SkullhouseNYU/skullhouse/public;
+	root /server/skullhouse/public;
 #	root /usr/share/nginx/html/oldSkullhouse/_site; ### SERVES OLD VERSION OF SITE ###
 	index index.php;
 
