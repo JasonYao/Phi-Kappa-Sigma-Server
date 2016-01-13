@@ -1,0 +1,3 @@
+[submodule "room_automator"]
+	path = room_automator
+	url = https://github.com/JasonYao/NYU-Bobst-Library-Reservation-Automator-Java.git
