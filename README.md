@@ -8,6 +8,18 @@ the Phi Kappa Sigma, Delta Phi Chapter at New York University.
 The goal of this repository is the ability to quickly download and deploy, given pre-configured
 configurations of services following best practices.
 
+## Setup
+Create a directory to house all services, and download this file onto the fresh server
+
+```sh
+sudo mkdir /server
+sudo chown -R YOUR_USERNAME_HERE:www-data # Must have installed nginx first
+sudo chown -R 664 /server
+cd /server
+git clone --recursive https://github.com/JasonYao/Phi-Kappa-Sigma-Server.git .
+git submodule update --remote
+```
+
 ## What in this repo
 
 ### [Automatic TLS certificate generation](letsEncrypt/)
