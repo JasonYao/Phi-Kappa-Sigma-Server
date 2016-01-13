@@ -44,7 +44,7 @@ def generate_tls_certificates(log_file):
         email_omega(False, log_file)
 
     log_file.write(letsencrypt_output)
-    log_file.write("TLS certificates successfully generated for this month.\nSending notification email to omega.")
+    log_file.write("TLS certificates successfully generated for this month.\nSending notification email to omega.\n")
     email_omega(True, log_file)
     return
 
