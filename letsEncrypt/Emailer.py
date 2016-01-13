@@ -22,6 +22,9 @@ def generate_tls_certificates(log_file):
     log_file.write("Letsencrypt TLS Generator: START")
 
     # Calls the bash command to generate the TLS certificates
+    echo_command = [
+        "echo", "2"
+    ]
     letsencrypt_command = [
         "./letsencrypt-auto", "--config", "/etc/letsencrypt/cli.ini", "--agree-tos", "certonly"
     ]
@@ -29,10 +32,10 @@ def generate_tls_certificates(log_file):
     letsencrypt_output = ""
 
     try:
-        # Note: unknown if cwb can take relative paths, we'll give it a try to see.
-        letsencrypt_output_raw = subprocess.Popen(letsencrypt_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                                  cwd="build")
-        letsencrypt_output = bytes(letsencrypt_output_raw.stdout.read()).decode()
+        # We do it this way to feed in the integer "2" into stdin, so it hits the interactive prompt
+        echo_output = subprocess.Popen(echo_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        letsencrypt_output = subprocess.check_output(letsencrypt_command, stdin=echo_output.stdout, cwd="build")
+        echo_output.stdout.close()
     except subprocess.CalledProcessError:
         # Something went wrong with the certificate generation, sends an email to the omega
         log_file.write("Error: unable to generate the TLS certificate. Sending an email to the omega.")
