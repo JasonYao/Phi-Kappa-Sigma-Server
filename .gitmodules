@@ -1,3 +1,6 @@
 [submodule "room_automator"]
 	path = room_automator
 	url = https://github.com/JasonYao/NYU-Bobst-Library-Reservation-Automator-Java.git
+[submodule "minutes_emailer"]
+	path = minutes_emailer
+	url = https://github.com/JasonYao/Chapter-Minutes-Emailer.git
