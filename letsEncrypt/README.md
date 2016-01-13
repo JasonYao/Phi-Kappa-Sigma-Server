@@ -6,15 +6,25 @@ We will use the Let's Encrypt service to automate the generation and deployment 
 such that automatic generation and deployment will occur.
 
 ## Running the program
-To generate and deploy the certifications, simply run the command below.
 
+### Using the [run](run.sh) script
 ```sh
+./run.sh
+```
+
+### Using the [manual run](run-manually.sh) script
+```sh
+./run-manually.sh
+```
+
+### The really manual way
+```sh
+cd build
 ./letsencrypt-auto --config /etc/letsencrypt/cli.ini --agree-tos certonly
 ```
 
-## Cron job
-The `cron` job is already on the server, and will just do one thing: run the above program once every 60 days,
-then send an email about it to the omega email address. TODO make cron job.
+## `Cron` job
+To have the server automatically run the `cron` job once a month, simply run the [time](time.sh) script to have the job be added.
 
 ## Configuration file
 The [configuration file](cli.ini) for LE will be symlinked to /etc/letsencrypt/cli.ini.
