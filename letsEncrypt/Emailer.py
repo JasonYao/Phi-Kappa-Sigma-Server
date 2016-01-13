@@ -19,7 +19,7 @@ def setup_logging():
 
 
 def generate_tls_certificates(log_file):
-    log_file.write("Letsencrypt TLS Generator: START")
+    log_file.write("Letsencrypt TLS Generator: START\n")
 
     # Calls the bash command to generate the TLS certificates
     echo_command = [
@@ -44,7 +44,7 @@ def generate_tls_certificates(log_file):
         email_omega(False, log_file)
 
     log_file.write(letsencrypt_output)
-    log_file.write("TLS certificates successfully generated for this month. Sending notification email to omega.")
+    log_file.write("TLS certificates successfully generated for this month.\nSending notification email to omega.")
     email_omega(True, log_file)
     return
 
@@ -67,7 +67,7 @@ def email_omega(success, log_file):
               "subject": subject,
               "text": message
               })
-    log_file.write("Email to omega successfully sent.")
+    log_file.write("Email to omega successfully sent.\n")
     return
 
 
