@@ -36,5 +36,9 @@ This portion relates to the actual site itself, containing everything related to
 upkeep. The site currently runs off of the PHP-based laravel, though the roadmap is to migrate to
 django for longer-term stability in the long run.
 
+### [Automatic Bobst Study Room Reservation](room_automator/)
+This submodule contains the study room automator to reserve rooms at Bobst Library at New York University
+automatically for the chapter.
+
 ## License
 This repo is licensed under the GNU GPL v2 License, a copy of which may be found [here](LICENSE)
