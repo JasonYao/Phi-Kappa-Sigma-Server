@@ -34,8 +34,10 @@ def generate_tls_certificates(log_file):
     try:
         # We do it this way to feed in the integer "2" into stdin, so it hits the interactive prompt
         echo_output = subprocess.Popen(echo_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        letsencrypt_output = subprocess.check_output(letsencrypt_command, stdin=echo_output.stdout, cwd="build")
+        letsencrypt_output_raw = subprocess.check_output(letsencrypt_command, stdin=echo_output.stdout, cwd="build")
         echo_output.stdout.close()
+
+        letsencrypt_output = bytes(letsencrypt_output_raw).decode()
     except subprocess.CalledProcessError:
         # Something went wrong with the certificate generation, sends an email to the omega
         log_file.write("Error: unable to generate the TLS certificate. Sending an email to the omega.")
