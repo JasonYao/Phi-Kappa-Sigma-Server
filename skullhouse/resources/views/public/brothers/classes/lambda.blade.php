@@ -1,18 +1,11 @@
-<!-- Lambda Pledge Class -->
-<h3>Lambda Pledge Class</h3>
+<!-- Lambda Class -->
+<h3>Lambda Class</h3>
 
 <!-- Andrew Mei -->
 @if($brothers->where('seo', 'AndrewMei')->first() !== NULL)
     <a href="/brothers/{{$brothers->where('seo', 'AndrewMei')->first()->seoExternal}}/">Andrew Mei</a><br>
 @else
     Andrew Mei<br>
-@endif
-
-<!-- Arvind Ramgopal -->
-@if($brothers->where('seo', 'ArvindRamgopal')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'ArvindRamgopal')->first()->seoExternal}}/">Arvind Ramgopal</a><br>
-@else
-    Arvind Ramgopal<br>
 @endif
 
 <!-- Ashwin Chandrasekhar -->
