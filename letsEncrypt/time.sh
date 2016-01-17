@@ -5,7 +5,7 @@ set -e
 # Write out current crontab
 crontab -l > tempCron
 
-echo "0 0 1 * * /server/letsEncrypt/run.sh" >> tempCron
+echo "0 0 1 * * /bin/bash /server/letsEncrypt/run.sh" >> tempCron
 
 # Adds a newline character
 echo  >> tempCron;
