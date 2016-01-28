@@ -1,5 +1,30 @@
 /* Page specific styling for home page */
 
+/* Mask fade in loader */
+	#mask {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		background-color: #000;
+		z-index: 100;
+		height: 100%;
+	}
+
+/*
+	#loader {
+		width: 200px;
+		height: 200px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		background-image: url("/assets/img/mask/loading.gif");
+		background-repeat: no-repeat;
+		background-position: center center;
+		margin: -100px 0px 0px -100px;
+	}
+*/
 /* Image enlargement styling */
 p {
 	text-align: left;
