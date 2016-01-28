@@ -31,11 +31,10 @@
 
 	<p>
 		We are excited for recruitment this semester and invite you to be a part of the most tight-knit 
-		brotherhood on campus. To take the first step, please 
-		register for recruitment
-		with the Interfraternity Council. To learn more about Skullhouse’s “Billiards and Jazz,” “Fratapult,” and 
-		“Soccer and Frisbee” <a href="/events/">recruitment events</a>, 
-		join our <a href="https://www.facebook.com/groups/RushSkullhouseNYU/">Facebook group</a>. And of course, please browse 
+		brotherhood on campus. To take the first step, please register for recruitment
+		with the <a href="https://docs.google.com/a/nyu.edu/forms/d/1mdVOp7-OEeccS3DltkeYtkoJN3mVC1AyDWdrfSTlBf4/viewform?c=0&w=1">Interfraternity Council</a>. 
+		To learn more about Skullhouse’s "Fratapult", "Billiards & Jazz", and "Comedy Club" <a href="/events/">recruitment events</a>, 
+		join our <a href="https://www.facebook.com/groups/1739732559592731/">Facebook group</a>. And of course, please browse 
 		this website — it’s a treasure trove of information! 
 	</p>
 

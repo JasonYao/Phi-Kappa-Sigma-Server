@@ -1,5 +1,5 @@
 @extends('public.carouselBase')
 
 @section('text')
-	@include('public.events.fall2015')
+	@include('public.events.spring2016')
 @overwrite
