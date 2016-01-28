@@ -83,11 +83,3 @@
 @else
 	Vincent Morello<br>
 @endif
-
-<!-- Zachary Falkow -->
-@if($brothers->where('seo', 'ZacharyFalkow')->first() !== NULL)
-	<a href="/brothers/{{$brothers->where('seo', 'ZacharyFalkow')->first()->seoExternal}}/">Zachary Falkow</a><br>
-@else
-	Zachary Falkow<br>
-@endif
-
