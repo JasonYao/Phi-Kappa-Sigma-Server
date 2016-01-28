@@ -7,8 +7,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(window).load(function() {
-            $("#loader").fadeOut("slow");
-            $("#mask").delay(200).fadeOut("slow");
+            $("#mask").delay(300).fadeOut(1500);
         });
     });
 </script>
