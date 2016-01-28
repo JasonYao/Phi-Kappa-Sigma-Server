@@ -30,4 +30,6 @@
 @include('public.brothers.classes.kappa')
 
 @include('public.brothers.classes.lambda')
+
+@include('public.brothers.classes.mu')
 </div>
