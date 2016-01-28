@@ -40,6 +40,7 @@
 			Route::get('services/email', 'ServicesController@email');
 			Route::get('services/photography', 'ServicesController@photography');
 	*/
+
 	// Brothers Page
 	Route::get('brothers', 'BrothersController@index');
 	Route::get('brothers/{brother}', 'BrothersController@getBrother');
@@ -57,42 +58,41 @@
 /* Private Access (account required) */
 	// Login & Registration
 		// Authentication routes
-			Route::get('login', 'Auth\AuthController@getLogin');
-			Route::post('login', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postLogin'));
-			Route::get('logout', 'Auth\AuthController@getLogout');
+//			Route::get('login', 'Auth\AuthController@getLogin');
+//			Route::post('login', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postLogin'));
+//			Route::get('logout', 'Auth\AuthController@getLogout');
 
 		// Registration routes
-			Route::get('register', 'Auth\AuthController@getRegister');
-			Route::post('register', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postRegister'));
+//			Route::get('register', 'Auth\AuthController@getRegister');
+//			Route::post('register', array('before' => 'csrf', 'uses' => 'Auth\AuthController@postRegister'));
 
 		// Password reset link request routes
-			Route::get('password/email', 'Auth\PasswordController@getEmail');
-			Route::post('password/email', 'Auth\PasswordController@postEmail');
+//			Route::get('password/email', 'Auth\PasswordController@getEmail');
+//			Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 		// Password reset routes
-			Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-			Route::post('password/reset', 'Auth\PasswordController@postReset');
+//			Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+//			Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 		// Email confirmation route
-			Route::get('register/verify/{inputCode}', [
-				'as' => 'confirmation_path',
-				'uses' => 'Auth\AuthController@confirm'
-			]);
+//			Route::get('register/verify/{inputCode}', [
+//				'as' => 'confirmation_path',
+//				'uses' => 'Auth\AuthController@confirm'
+//			]);
 
 		// Phi Kap validation route
-			Route::get('PhiKap/{email}', 'PhiKapValidationController@getPhiKapValidation');
-
-			Route::get('/verify/PhiKap/{confirmationReply}', [
-                'as' => 'confirmation_path',
-                'uses' => 'PhiKapValidationController@confirm'
-            ]);
+//			Route::get('PhiKap/{email}', 'PhiKapValidationController@getPhiKapValidation');
+//
+//			Route::get('/verify/PhiKap/{confirmationReply}', [
+//                'as' => 'confirmation_path',
+//                'uses' => 'PhiKapValidationController@confirm'
+//            ]);
 
 	// Authenticed routes
-		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
+//		Route::get('dashboard', 'ValidatedPagesController@getDashboard');
+//		Route::get('profile', 'UserController@getProfile');
 
-		Route::get('profile', 'UserController@getProfile');
-
-		Route::get('profile/update', 'UserController@getProfileUpdate');
-		Route::post('profile/update', array('before' => 'csrf', 'uses' => 'UserController@updateProfile'));
+//		Route::get('profile/update', 'UserController@getProfileUpdate');
+//		Route::post('profile/update', array('before' => 'csrf', 'uses' => 'UserController@updateProfile'));
 
 /* Error handling */
