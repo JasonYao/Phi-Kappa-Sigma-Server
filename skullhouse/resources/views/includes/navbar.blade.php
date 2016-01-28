@@ -51,8 +51,8 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
 								<li class="{{ Request::is('membership/recruitment') ? 'live' : '' }}"><a href="/membership/recruitment/">Recruitment</a></li>
-	                            <li class="{{ Request::is('membership/expectations') ? 'live' : '' }}"><a href="/membership/expectations/">Expectations</a></li>
 								<li class="{{ Request::is('membership/faqs') ? 'live' : '' }}"><a href="/membership/faqs/">FAQs</a></li>
+	                            <li class="{{ Request::is('membership/expectations') ? 'live' : '' }}"><a href="/membership/expectations/">Expectations</a></li>
 
 								<hr>
 								@if (Auth::check())
