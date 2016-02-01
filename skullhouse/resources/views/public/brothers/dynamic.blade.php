@@ -2,11 +2,6 @@
 <h1>BROTHERS</h1>
 <hr>
 
-	<p>
-		To view a Skull's biography, click his name. To update your biography, click <a href="/login/" class="exception">here</a>.
-	</p>
-<hr>
-
 @include('public.brothers.classes.founders')
 
 @include('public.brothers.classes.alpha')
