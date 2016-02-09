@@ -43,7 +43,7 @@
 
 	// Brothers Page
 	Route::get('brothers', 'BrothersController@index');
-	Route::get('brothers/{brother}', 'BrothersController@getBrother');
+//	Route::get('brothers/{brother}', 'BrothersController@getBrother');
 
 	// Contact Page
 	Route::get('contact', 'PagesController@contact');

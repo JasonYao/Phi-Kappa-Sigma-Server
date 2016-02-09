@@ -2,57 +2,26 @@
 <h3>Lambda Class</h3>
 
 <!-- Andrew Mei -->
-@if($brothers->where('seo', 'AndrewMei')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'AndrewMei')->first()->seoExternal}}/">Andrew Mei</a><br>
-@else
-    Andrew Mei<br>
-@endif
+Andrew Mei<br>
 
 <!-- Ashwin Chandrasekhar -->
-@if($brothers->where('seo', 'AshwinChandrasekhar')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'AshwinChandrasekhar')->first()->seoExternal}}/">Ashwin Chandrasekhar</a><br>
-@else
-    Ashwin Chandrasekhar<br>
-@endif
+Ashwin Chandrasekhar<br>
 
 <!-- Charles Calkins -->
-@if($brothers->where('seo', 'CharlesCalkins')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'CharlesCalkins')->first()->seoExternal}}/">Charles Calkins</a><br>
-@else
-    Charles Calkins<br>
-@endif
+Charles Calkins<br>
 
 <!-- Gen Morigami -->
-@if($brothers->where('seo', 'GenMorigami')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'GenMorigami')->first()->seoExternal}}/">Gen Morigami</a><br>
-@else
-    Gen Morigami<br>
-@endif
+Gen Morigami<br>
 
 <!-- Jake Wang -->
-@if($brothers->where('seo', 'JakeWang')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'JakeWang')->first()->seoExternal}}/">Jake Wang</a><br>
-@else
-    Jake Wang<br>
-@endif
+Jake Wang<br>
 
 <!-- Matt DeMichiel -->
-@if($brothers->where('seo', 'MattDeMichiel')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'MattDeMichiel')->first()->seoExternal}}/">Matt DeMichiel</a><br>
-@else
-    Matt DeMichiel<br>
-@endif
+Matt DeMichiel<br>
 
 <!-- Mickey Shiotani -->
-@if($brothers->where('seo', 'MickeyShiotani')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'MickeyShiotani')->first()->seoExternal}}/">Mickey Shiotani</a><br>
-@else
-    Mickey Shiotani<br>
-@endif
+Mickey Shiotani<br>
 
 <!-- Mitch Shiotani -->
-@if($brothers->where('seo', 'MitchShiotani')->first() !== NULL)
-    <a href="/brothers/{{$brothers->where('seo', 'MitchShiotani')->first()->seoExternal}}/">Mitch Shiotani</a><br>
-@else
-    Mitch Shiotani<br>
-@endif
+Mitch Shiotani<br>
+
