@@ -30,7 +30,20 @@ cd build
 ```
 
 ## `Cron` job
-To have the server automatically run the `cron` job once a month, simply run the [time](time.sh) script to have the job be added.
+To have the server automatically run the `cron` job once a month, follow the steps only ONCE 
+(otherwise the program will run multiple times at the same time, crashing your system).
+
+0.) Opens up your system's root crontab
+```sh
+sudo crontab -e
+```
+
+1.) Scroll to the bottom, and paste the following code on a new line:
+```sh
+0 0 1 * * /bin/bash /server/letsEncrypt/run.sh
+```
+
+2.) hit `ENTER` again so there's a newline at the end of the file, then save your work.
 
 ## Configuration file
 The [configuration file](cli.ini) for LE will be symlinked to /etc/letsencrypt/cli.ini.
